@@ -2,7 +2,11 @@ module.exports = function (grunt) {
 
   grunt.initConfig({
     jshint: {
-      files: ['Gruntfile.js', 'package.json', 'src/**/*.js'],
+      files: [
+        'Gruntfile.js',
+        'package.json',
+        'src/**/*.js'
+      ],
       options: {
       }
     },
@@ -13,8 +17,6 @@ module.exports = function (grunt) {
           'lib/angular.js',
           'lib/angular-mocks.js',
           'src/**/*.js'
-        ],
-        exclude: [
         ],
         browsers: process.env.TRAVIS ? ['Firefox'] : ['Chrome']
       },
