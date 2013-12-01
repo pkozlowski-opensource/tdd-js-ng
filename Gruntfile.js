@@ -10,6 +10,8 @@ module.exports = function (grunt) {
       options: {
         frameworks: ['jasmine'],
         files: [
+          'lib/angular.js',
+          'lib/angular-mocks.js',
           'src/**/*.js'
         ],
         exclude: [
