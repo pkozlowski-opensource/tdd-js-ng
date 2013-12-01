@@ -26,7 +26,7 @@ var UserStorage = function() {
 
   this.getAll = function() {
     var result = [];
-    for (userId in users) {
+    for (var userId in users) {
       result.push(users[userId]);
     }
     return result;
