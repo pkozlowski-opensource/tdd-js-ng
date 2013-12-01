@@ -1,3 +1,7 @@
+[![Build Status](https://travis-ci.org/pkozlowski-opensource/tdd-js-ng.png)](https://travis-ci.org/pkozlowski-opensource/tdd-js-ng)
+[![devDependency Status](https://david-dm.org/pkozlowski-opensource/tdd-js-ng.png?branch=master)](pkozlowski-opensource/tdd-js-ng#info=devDependencies)
+
+
 # TDD in JavaScript with AngularJS
 
 ### Prepare your environment
