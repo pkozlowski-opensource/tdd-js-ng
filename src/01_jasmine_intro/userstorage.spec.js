@@ -8,12 +8,20 @@ describe('User storage as global function', function () {
 
   describe('basic CRUD operations', function () {
 
-    it('should allow adding and querying users', function () {
+    it('should allow adding and querying users by id', function () {
       var user = userStorage.save({
         name: 'Pawel'
       });
 
       expect(userStorage.getById(user.id).name).toEqual('Pawel');
+    });
+
+    it('should allow querying all users', function () {
+
+      userStorage.save({name: 'foo'});
+      userStorage.save({name: 'bar'});
+
+      expect(userStorage.getAll().length).toEqual(2);
     });
 
     it('should support removing users by id', function () {

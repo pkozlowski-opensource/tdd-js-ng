@@ -11,10 +11,6 @@ var UserStorage = function() {
     return user;
   };
 
-  this.getById = function(userId) {
-    return users[userId] || null;
-  };
-
   this.remove = function(userId) {
     var toBeDeleted = this.getById(userId);
     if (toBeDeleted) {
@@ -23,6 +19,19 @@ var UserStorage = function() {
 
     return toBeDeleted;
   };
+
+  this.getById = function(userId) {
+    return users[userId] || null;
+  };
+
+  this.getAll = function() {
+    var result = [];
+    for (userId in users) {
+      result.push(users[userId]);
+    }
+    return result;
+  };
+
 };
 
-UserStorage.sequence = 0;
+UserStorage.sequence = 1;
