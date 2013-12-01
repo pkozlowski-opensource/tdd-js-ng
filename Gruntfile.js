@@ -28,13 +28,30 @@ module.exports = function (grunt) {
         autoWatch: false,
         singleRun: true
       }
-    }
+    },
+    connect: {
+      server: {
+        options: {
+          port: 8000,
+          base: '.',
+          keepalive: true,
+          middleware: function (connect, options) {
+            return [
+              connect.static(options.base),
+              connect.directory(options.base)
+            ];
+          }
+        }
+      }
+    },
   });
 
   grunt.registerTask('default', ['jshint', 'karma:ci']);
   grunt.registerTask('tdd', ['karma:tdd']);
+  grunt.registerTask('www', ['connect:server']);
 
 
   grunt.loadNpmTasks('grunt-contrib-jshint');
+  grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-karma');
 };

@@ -15,3 +15,4 @@
 
 * `grunt` - default / ci task: check code rules and runs all the tests
 * `grunt tdd` - tdd mode - re-runs all the tests on any code change
+* `grunt www` - starts a www server on port 8000. Point your browser to http://localhost:8000
