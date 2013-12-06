@@ -44,10 +44,10 @@
         <td>{{user.id}}</td>
         <td>{{user.login}}</td>
         <td>{{user.name}}</td>
-        <td>{{user.dateOfBirth}}</td>
+        <td>{{user.birthDate}}</td>
         <td>
-            <a ng-click="edit(user)">Edit</a>
-            <a ng-click="remove(user.id)">Remove</a>
+            <span ng-click="edit(user)" title="Edit" class="glyphicon glyphicon-edit"></span>
+            <span ng-click="remove(user.id)" title="Remove" class="glyphicon glyphicon-trash"></span>
         </td>
     </tr>
 </table>
