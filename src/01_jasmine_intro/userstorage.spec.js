@@ -20,14 +20,17 @@ describe('User storage as a global constructor function', function () {
 
     it('should allow querying all users', function () {
 
+      // ex:start
       userStorage.save({name: 'foo'});
       userStorage.save({name: 'bar'});
 
       expect(userStorage.getAll().length).toEqual(2);
+      // ex:end
     });
 
     it('should support removing users by id', function () {
 
+      // ex:start
       // setup
       userStorage.save({id: '1', value: 'foo'});
       userStorage.save({id: '2', value: 'bar'});
@@ -39,14 +42,18 @@ describe('User storage as a global constructor function', function () {
       expect(removed.value).toEqual('foo');
       expect(userStorage.getById('1')).toBeFalsy();
       expect(userStorage.getById('2').value).toEqual('bar');
+      //ex:end
     });
+
 
   });
 
   describe('corner cases', function () {
 
     it('should return null for non existing users', function () {
+      // ex:start
       expect(userStorage.getById('foo')).toBeNull();
+      // ex:end
     });
 
   });
