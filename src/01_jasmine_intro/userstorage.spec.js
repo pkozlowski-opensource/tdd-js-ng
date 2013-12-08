@@ -1,7 +1,7 @@
+// slide:start:test;
 describe('User storage as a global constructor function', function () {
 
   var userStorage;
-
   beforeEach(function () {
     userStorage = new UserStorage();
   });
@@ -15,6 +15,8 @@ describe('User storage as a global constructor function', function () {
 
       expect(userStorage.getById(user.id).name).toEqual('Pawel');
     });
+
+    // slide:end
 
     it('should allow querying all users', function () {
 

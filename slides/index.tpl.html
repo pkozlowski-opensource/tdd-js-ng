@@ -34,55 +34,11 @@
 					</p>
 				</section>
 
-                <section>
-    <section>
-        <h2>My name is Pawel</h2>
+                <%= include('slides/inc/day1/01_about_me.html') %>
 
-        <h2>I'm the open-source enthusiast</h2>
-        <!-- OS Badges -->
-    </section>
+                <%= include('slides/inc/day1/02_about_you.html') %>
 
-    <section>
-        <img src="http://www.packtpub.com/sites/default/files/1820OS.jpg" alt=""/>
-    </section>
-</section>
-
-                <section>
-    <h2>Tell me more about you</h2>
-    <ul>
-        <li>Your name</li>
-        <li>Your experience with:
-            <ul>
-                <li>Unit testing and TDD</li>
-                <li>JavaScript and testing with Jasmine</li>
-                <li>AngularJS</li>
-            </ul>
-        </li>
-        <li>Your expectations regarding this workshop</li>
-    </ul>
-</section>
-
-                <section>
-    <section>
-        <h2>Code samples and exercises</h2>
-    </section>
-    <section>
-        <h2>Problem domain</h2>
-    </section>
-    <section>
-        <h2>Exercises</h2>
-    </section>
-</section>
-
-<section>
-    <h2>Organizational details</h2>
-    <ul>
-        <li>Lunch break 13:00 - 14:00</li>
-        <li>2 other breaks (15-30 min) during the day</li>
-        <li>Please, switch off your mobile devices if possible</li>
-    </ul>
-</section>
-
+                <%= include('slides/inc/day1/03_practical_info.html') %>
 
                 <section>
                     <h2>Day 1</h2>
@@ -119,24 +75,7 @@
 
                     <section>
                         <h3>Anatomy of a Jasmine test</h3>
-<pre><code ng-non-bindable>describe('User storage as a global constructor function', function () {
-
-  var userStorage;
-  beforeEach(function () {
-    userStorage = new UserStorage();
-  });
-
-  describe('basic CRUD operations', function () {
-
-    it('should allow adding and querying users by id', function () {
-      var user = userStorage.save({
-        name: 'Pawel'
-      });
-
-      expect(userStorage.getById(user.id).name).toEqual('Pawel');
-    });
-
- ...</code></pre>
+<pre><code ng-non-bindable><%= includeJs('src/01_jasmine_intro/userstorage.spec.js', 'test') %></code></pre>
                     </section>
 
                     <section>
@@ -168,18 +107,7 @@
                         <h2>Hello, {{name}}!</h2>
                         <input type="text" ng-model="name"/>
 <pre><code ng-non-bindable>
-&lt;!DOCTYPE html&gt;
-&lt;html ng-app&gt;
-&lt;head&gt;
-    &lt;script src=&quot;../../lib/angular.js&quot;&gt;&lt;/script&gt;
-&lt;/head&gt;
-&lt;body&gt;
-
-    &lt;h1&gt;Hello, {{name}}!&lt;/h1&gt;
-    &lt;input type=&quot;text&quot; ng-model=&quot;name&quot;/&gt;
-
-&lt;/body&gt;
-&lt;/html&gt;
+<%= includeHtml('src/02_angularjs_intro/index.html') %>
 </code></pre>
                     </section>
                 </section>
