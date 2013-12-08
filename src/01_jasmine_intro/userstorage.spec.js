@@ -1,4 +1,4 @@
-describe('User storage as global function', function () {
+describe('User storage as a global constructor function', function () {
 
   var userStorage;
 
