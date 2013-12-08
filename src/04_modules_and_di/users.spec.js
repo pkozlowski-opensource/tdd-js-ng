@@ -30,7 +30,8 @@ describe('users controller', function () {
       // ad-hoc stubbing - I can override individual dependencies
       'UserStorage' : {
         save: function(user) {
-          return savedUser = user;
+          savedUser = user;
+          return savedUser;
         },
         getAll: function() {
           return [savedUser];
