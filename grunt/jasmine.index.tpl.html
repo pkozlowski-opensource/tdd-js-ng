@@ -14,6 +14,7 @@
 </head>
 
 <body>
+<% if(hasDemo) { %><a href="demo.html">DEMO</a><% } %>
 <script>
     var jasmineEnv = jasmine.getEnv();
     jasmineEnv.addReporter(new jasmine.HtmlReporter());

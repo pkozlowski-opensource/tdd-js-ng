@@ -87,7 +87,8 @@ module.exports = function (grunt) {
           files: {
             code: codeFiles,
             specs: specFiles
-          }
+          },
+          hasDemo: grunt.file.exists(exercisePath + path.sep + 'demo.html')
         }
       }));
     });
