@@ -4,7 +4,7 @@
     <link rel="stylesheet" href="../../assets/bootstrap.css"/>
     <script src="../../lib/angular.js"></script>
     <!-- with AngularJS modules load order doesn't matter any more-->
-    <script src="../04_modules_and_di/userstorage.js"></script>
+    <script src="userstorage.js"></script>
     <script src="users.js"></script>
     <script>
         angular.module('app', ['users', 'userstorage']);
@@ -48,11 +48,15 @@
         <th>Date of birth</th>
         <th>Tools</th>
     </tr>
-    <tr ng-repeat="user in users | filter:filterCriteria">
+    <!-- slide:start:filter; -->
+    <tr ng-repeat="user in users | filter:filterCriteria | limitTo:20">
         <td>{{user.id}}</td>
         <td>{{user.login}}</td>
         <td>{{user.name}}</td>
-        <td>{{user.birthDate | date:'shortDate'}}</td>
+        <!-- slide:end -->
+        <!-- slide:start:date; -->
+        <td>{{user.birthDate | date:'YYYY-MM-dd'}}</td>
+        <!-- slide:end -->
         <td>
             <span ng-click="edit(user)" title="Edit" class="glyphicon glyphicon-edit"></span>
             <span ng-click="remove(user.id)" title="Remove" class="glyphicon glyphicon-trash"></span>

@@ -184,6 +184,99 @@
                     </section>
                 </section>
 
+                <!-- 03 - AngularJS rendering engine -->
+
+                <!-- 04 - AngularJS modules and DI -->
+
+                <section>
+
+    <section>
+        <h2>More on the rendering engine</h2>
+        <h2>Filters</h2>
+    </section>
+
+    <section>
+        <h2>Filters</h2>
+<pre><code ng-non-bindable>
+    {{user.birthDate | date:'YYYY-MM-dd'}}
+</code></pre>
+        <ul>
+            <li>Global UI formatting / transforming functions</li>
+            <li>Built-in filters: formatting and arrays filtering</li>
+            <li>Very easy to unit-test</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Formatting filters</h2>
+        <pre><code ng-non-bindable>        &lt;td&gt;{{user.birthDate | date:&apos;YYYY-MM-dd&apos;}}&lt;/td&gt;</code></pre>
+        <h4>Examples of built-in formatting filters:</h4>
+        <ul>
+            <li>currency</li>
+            <li>date</li>
+            <li>json</li>
+            <li>lowercase, uppercase</li>
+            <li>number</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Filtering filters</h2>
+        <pre><code ng-non-bindable>    &lt;tr ng-repeat=&quot;user in users | filter:filterCriteria | limitTo:20&quot;&gt;
+        &lt;td&gt;{{user.id}}&lt;/td&gt;
+        &lt;td&gt;{{user.login}}&lt;/td&gt;
+        &lt;td&gt;{{user.name}}&lt;/td&gt;</code></pre>
+        <h4>Examples of built-in formatting filters:</h4>
+        <ul>
+            <li>filter</li>
+            <li>limitTo</li>
+            <li>orderBy</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Filters best practices</h2>
+        <ul>
+            <li>UI-focused functions</li>
+            <li>Small, fast, synchronous</li>
+            <li>No side effects</li>
+            <li>Idempotent</li>
+            <li>Model-focused, no DOM manipulation</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Using filters from JavaScript code</h2>
+        <pre><code ng-non-bindable>
+angular.module('myDate', [])
+  .filter('myDate', function (dateFilter, $filter) {
+    return function (inputDate) {
+      return dateFilter(inputDate, 'YYYY-MM-dd');
+      //return $filter('date')(inputDate, 'YYYY-MM-dd');
+    };
+  });
+        </code></pre>
+    </section>
+
+    <section>
+        <h1>Exercise</h1>
+        <h2>15 min</h2>
+        <p>Write a pagination filter, wrapping around the limitTo one, </p>
+        <p>that allows limiting an array to both boundaries.</p>
+        <pre><code ng-non-bindable>{{ users | pagination:pageNo:10}}</code></pre>
+    </section>
+
+</section>
+
+
+                <!-- 06 - Async with AngularJS - $q -->
+
+
+
+                <!-- 07 - Communicating with a back-end in AngularJS - $http -->
+
+                <!-- 08 - Communicating with a restful back-end in AngularJS - $resource and $http -->
+
                 <section>
                     <h1>That's it for today</h1>
                     <h4>See you tomorrow at 09:00 a.m.</h4>

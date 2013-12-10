@@ -1,0 +1,76 @@
+<section>
+
+    <section>
+        <h2>More on the rendering engine</h2>
+        <h2>Filters</h2>
+    </section>
+
+    <section>
+        <h2>Filters</h2>
+<pre><code ng-non-bindable>
+    {{user.birthDate | date:'YYYY-MM-dd'}}
+</code></pre>
+        <ul>
+            <li>Global UI formatting / transforming functions</li>
+            <li>Built-in filters: formatting and arrays filtering</li>
+            <li>Very easy to unit-test</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Formatting filters</h2>
+        <pre><code ng-non-bindable><%= includeHtml('src/05_filters/index.html', 'date') %></code></pre>
+        <h4>Examples of built-in formatting filters:</h4>
+        <ul>
+            <li>currency</li>
+            <li>date</li>
+            <li>json</li>
+            <li>lowercase, uppercase</li>
+            <li>number</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Filtering filters</h2>
+        <pre><code ng-non-bindable><%= includeHtml('src/05_filters/index.html', 'filter') %></code></pre>
+        <h4>Examples of built-in formatting filters:</h4>
+        <ul>
+            <li>filter</li>
+            <li>limitTo</li>
+            <li>orderBy</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Filters best practices</h2>
+        <ul>
+            <li>UI-focused functions</li>
+            <li>Small, fast, synchronous</li>
+            <li>No side effects</li>
+            <li>Idempotent</li>
+            <li>Model-focused, no DOM manipulation</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Using filters from JavaScript code</h2>
+        <pre><code ng-non-bindable>
+angular.module('myDate', [])
+  .filter('myDate', function (dateFilter, $filter) {
+    return function (inputDate) {
+      return dateFilter(inputDate, 'YYYY-MM-dd');
+      //return $filter('date')(inputDate, 'YYYY-MM-dd');
+    };
+  });
+        </code></pre>
+    </section>
+
+    <section>
+        <h1>Exercise</h1>
+        <h2>15 min</h2>
+        <p>Write a pagination filter, wrapping around the limitTo one, </p>
+        <p>that allows limiting an array to both boundaries.</p>
+        <pre><code ng-non-bindable>{{ users | pagination:pageNo:10}}</code></pre>
+    </section>
+
+</section>
