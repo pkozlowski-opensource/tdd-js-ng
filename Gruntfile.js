@@ -46,12 +46,19 @@ module.exports = function (grunt) {
           }
         }
       }
+    },
+    watch: {
+      slides: {
+        files: ['src/**/*', 'slides/inc/*', 'slides/index.tpl.html'],
+        tasks: ['prepareSlides']
+      }
     }
   });
 
   grunt.registerTask('default', ['jshint', 'karma:ci']);
   grunt.registerTask('tdd', ['karma:tdd']);
   grunt.registerTask('www', ['connect:server']);
+
 
   // ========== Internal code generation tasks: Jasmine ==================
 
@@ -101,7 +108,7 @@ module.exports = function (grunt) {
     console.log('Preparing exercises for: ');
 
     // for each file in the src/[exercise]/*.*
-    grunt.file.expand('src/01*/*.*').forEach(function (exerciseSourcePath) {
+    grunt.file.expand('src/*/*.*').forEach(function (exerciseSourcePath) {
 
       console.log(exerciseSourcePath);
 
@@ -174,7 +181,7 @@ module.exports = function (grunt) {
       var contentLines = content.split('\n');
       contentLines.forEach(function (line) {
         if (s(line).contains('slide:start:')) {
-          fragmentName = s(line).between('slide:start:', ';')
+          fragmentName = s(line).between('slide:start:', ';');
         } else if (s(line).contains('slide:end')) {
           fragments[fragmentName] = fragmentLines.join('\n');
           fragmentLines.length = 0;
@@ -213,6 +220,7 @@ module.exports = function (grunt) {
   // load standard Grunt tasks
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-connect');
+  grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-karma');
 
 };
