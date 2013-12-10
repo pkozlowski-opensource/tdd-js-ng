@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" ng-app>
+<html lang="en" ng-app="ngApp">
 
 	<head>
 		<meta charset="utf-8">
@@ -140,7 +140,7 @@
 
                     <section>
                         <h1>Exercise</h1>
-                        <h2>30 min</h2>
+                        <h2 stopwatch="30"></h2>
                         <p>Write and run Jasmine tests for a simple <i>UserStorage</i> class.</p>
                         <p>There is a skeleton of a class and a test ready.</p>
                     </section>
@@ -259,7 +259,7 @@ angular.module('myDate', [])
 
     <section>
         <h1>Exercise</h1>
-        <h2>15 min</h2>
+        <h2 stopwatch="15"></h2>
         <p>Write a pagination filter, wrapping around the limitTo one, </p>
         <p>that allows limiting an array to both boundaries.</p>
         <pre><code ng-non-bindable>{{ users | pagination:pageNo:10}}</code></pre>
@@ -449,6 +449,7 @@ angular.module('myDate', [])
 
     <section>
         <h1>Exercise</h1>
+        <h2 stopwatch="30"></h2>
         <p>Change the UserStorage service so it works in the asynchronous way.</p>
         <p>TDD way, of course.</p>
         <p>Hint: you will need the $q service.</p>
@@ -480,6 +481,7 @@ angular.module('myDate', [])
 
 		<script src="lib/js/head.min.js"></script>
         <script src="../lib/angular.js"></script>
+        <script src="js/ngApp.js"></script>
 		<script src="js/reveal.min.js"></script>
 
 		<script>
