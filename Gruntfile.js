@@ -49,7 +49,7 @@ module.exports = function (grunt) {
     },
     watch: {
       slides: {
-        files: ['src/**/*', 'slides/inc/*', 'slides/index.tpl.html'],
+        files: ['src/**/*', 'slides/inc/**/*', 'slides/index.tpl.html'],
         tasks: ['prepareSlides']
       }
     }
@@ -211,7 +211,7 @@ module.exports = function (grunt) {
 
         includeJs: function (path, fragment) {
           var fragments = getFragments(grunt.file.read(path));
-          return (!fragment ? fragments.full : fragments[fragment]) + '\n ...';
+          return (!fragment ? fragments.full : fragments[fragment]);
         }
       }
     }));

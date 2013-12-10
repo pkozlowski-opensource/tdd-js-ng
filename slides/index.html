@@ -135,8 +135,7 @@
 
       expect(userStorage.getById(user.id).name).toEqual('Pawel');
     });
-
- ...</code></pre>
+</code></pre>
                     </section>
 
                     <section>
@@ -264,13 +263,202 @@ angular.module('myDate', [])
         <p>Write a pagination filter, wrapping around the limitTo one, </p>
         <p>that allows limiting an array to both boundaries.</p>
         <pre><code ng-non-bindable>{{ users | pagination:pageNo:10}}</code></pre>
+        <a href="https://github.com/angular/angular.js/issues/5355">Issue 5355</a>
+        <p>"limitTo filter should have a left and right bound"</p>
     </section>
 
 </section>
 
+                <section>
+    <section>
+        <h2>Promises with $q</h2>
+        <img src="https://rawgithub.com/promises-aplus/promises-spec/master/logo.svg" width="200px" height="200px"/>
+    </section>
 
-                <!-- 06 - Async with AngularJS - $q -->
+    <section>
+        <h2>Promises</h2>
+        <blockquote>
+            <p>The thing is, promises are not about callback aggregation. That's a simple utility.</p>
+            <p>Promises are about
+            something much deeper, namely providing a direct correspondence between synchronous functions and
+            asynchronous functions.</p>
+        </blockquote>
+        <br/>
+        <i>Domenic Denicola</i> in
+        <a href="http://domenic.me/2012/10/14/youre-missing-the-point-of-promises/">You're Missing the Point of Promises</a>
+    </section>
 
+    <section>
+        <h2>Keeping sanity in the async world</h2>
+        <h4>Results are available in a different call stack...</h4>
+        <ul>
+            <li>"Callbacks hell"</li>
+            <li>There is no one to catch an exception...</li>
+            <li>Calling functions in a loop etc.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Promises in AngularJS</h2>
+        <ul>
+            <li>
+                The $q service based on Kris Kowal's q library
+                <a href="https://github.com/kriskowal/q">https://github.com/kriskowal/q</a>
+            </li>
+            <li>
+                "Next tick" implemented as an async queue the $digest loop
+            </li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Let's see some code</h2>
+        <pre><code ng-non-bindable>  var Person = function (name, $log) {
+
+    this.eat = function (food) {
+      $log.info(name + " is eating delicious " + food);
+    };
+    this.beHungry = function (reason) {
+      $log.warn(name + " is hungry because: " + reason);
+    };
+  };</code></pre>
+    </section>
+
+    <section>
+        <h2>Basic usage scenario</h2>
+        <pre><code ng-non-bindable>      it('should illustrate basic usage of $q', function () {
+
+        //deferred represents a task that will complete (or fail) in the future
+        var pizzaOrderFulfillment = $q.defer();
+
+        //the task in the future comes with a promise of task completion (or failure)
+        var pizzaDelivered = pizzaOrderFulfillment.promise;
+
+        pizzaDelivered.then(pawel.eat, pawel.beHungry);
+
+        pizzaOrderFulfillment.resolve('Margherita');
+        $rootScope.$digest();
+
+        expect($log.info.logs).toContain(['Pawel is eating delicious Margherita']);
+      });</code></pre>
+    </section>
+
+    <section>
+        <h2>There are always 2 actors</h2>
+        <ul>
+            <li>I control the future (.resolve, .reject)</li>
+            <li>I depend on future results (.then)</li>
+        </ul>
+        <pre><code ng-non-bindable>      it('should illustrate promise resolution in a service', function () {
+
+        var pizzaDelivered = pizzaPit.takeOrder('Margherita');
+        pizzaDelivered.then(pawel.eat, pawel.beHungry);
+
+        pizzaPit.deliverOrder();
+
+        expect($log.info.logs).toContain(['Pawel is eating delicious Margherita']);
+      });</code></pre>
+        <pre><code ng-non-bindable>      try {
+        pawel.eat(pizzaPit.takeOrder('Margherita'));
+      } catch (e) {
+        pawel.beHungry(e.msg);
+      }</code></pre>
+    </section>
+
+    <section>
+        <h2>Callback aggregation</h2>
+        <pre><code ng-non-bindable>      it('should allow callbacks aggregation', function () {
+        var pizzaDelivered = pizzaPit.takeOrder('Margherita');
+        pizzaDelivered.then(pawel.eat, pawel.beHungry);
+        pizzaDelivered.then(pete.eat, pete.beHungry);
+
+        pizzaPit.deliverOrder();
+        expect($log.info.logs).toContain(['Pawel is eating delicious Margherita']);
+        expect($log.info.logs).toContain(['Peter is eating delicious Margherita']);
+      });</code></pre>
+        <pre><code ng-non-bindable>      try {
+        var pizza = pizzaPit.takeOrder('Margherita');
+        pawel.eat(pizza);
+        pete.eat(pizza);
+      } catch (e) {
+        pawel.beHungry(e.msg);
+        pete.beHungry(e.msg);
+      }</code></pre>
+    </section>
+
+    <section>
+        <h2>Promise chaining</h2>
+        <pre><code ng-non-bindable>      it('should illustrate successful promise chaining', function () {
+
+        var slice = function(pizza) {
+          return "sliced "+pizza;
+        };
+
+        pizzaPit.takeOrder('Margherita').then(slice).then(pawel.eat);
+
+        pizzaPit.deliverOrder();
+        expect($log.info.logs).toContain(['Pawel is eating delicious sliced Margherita']);
+      });</code></pre>
+        <pre><code ng-non-bindable>      try {
+        pawel.eat(slice(pizzaPit.takeOrder('Margherita')));
+      } catch (e) {
+        pawel.beHungry(e.msg);
+      }</code></pre>
+    </section>
+
+    <section>
+        <h2>Error recovery</h2>
+        <pre><code ng-non-bindable>      it('should illustrate recovery from promise rejection', function () {
+
+        var retry = function(reason) {
+          return pizzaPit.takeOrder('Margherita').then(slice);
+        };
+        pizzaPit.takeOrder('Capricciosa').then(slice, retry).then(pawel.eat, pawel.beHungry);
+
+        pizzaPit.problemWithOrder('no Capricciosa, only Margherita left');
+        pizzaPit.deliverOrder();
+
+        expect($log.info.logs).toContain(['Pawel is eating delicious sliced Margherita']);
+      });</code></pre>
+        <pre><code ng-non-bindable>      try {
+        pawel.eat(pizzaPit.takeOrder('Capricciosa'));
+      } catch (e) {
+        pawel.eat(pizzaPit.takeOrder('Margherita'));
+      }</code></pre>
+    </section>
+
+    <section>
+        <h2>Explicit rejection</h2>
+        <pre><code ng-non-bindable>      it('should illustrate explicit rejection in chain', function () {
+
+        var explain = function(reason) {
+          return $q.reject('ordered pizza not available');
+        };
+
+        pizzaPit.takeOrder('Capricciosa').then(slice, explain).then(pawel.eat, pawel.beHungry);
+        pizzaPit.problemWithOrder('no Capricciosa, only Margherita left');
+
+        expect($log.warn.logs).toContain(['Pawel is hungry because: ordered pizza not available']);
+      });</code></pre>
+        <pre><code ng-non-bindable>      try {
+        pawel.eat(pizzaPit.takeOrder('Capricciosa'));
+      } catch (e) {
+        throw new Exception('ordered pizza not available');
+      }</code></pre>
+    </section>
+
+    <section>
+        <h1>Exercise</h1>
+        <p>Change the UserStorage service so it works in the asynchronous way.</p>
+        <p>TDD way, of course.</p>
+        <p>Hint: you will need the $q service.</p>
+    </section>
+
+    <section>
+        <h2>More $q examples</h2>
+    </section>
+
+</section>
 
 
                 <!-- 07 - Communicating with a back-end in AngularJS - $http -->
@@ -304,7 +492,7 @@ angular.module('myDate', [])
 				history: true,
 				center: true,
 
-				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+                theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
 				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
 
                 minScale: 0.2,

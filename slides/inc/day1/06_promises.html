@@ -1,0 +1,98 @@
+<section>
+    <section>
+        <h2>Promises with $q</h2>
+        <img src="https://rawgithub.com/promises-aplus/promises-spec/master/logo.svg" width="200px" height="200px"/>
+    </section>
+
+    <section>
+        <h2>Promises</h2>
+        <blockquote>
+            <p>The thing is, promises are not about callback aggregation. That's a simple utility.</p>
+            <p>Promises are about
+            something much deeper, namely providing a direct correspondence between synchronous functions and
+            asynchronous functions.</p>
+        </blockquote>
+        <br/>
+        <i>Domenic Denicola</i> in
+        <a href="http://domenic.me/2012/10/14/youre-missing-the-point-of-promises/">You're Missing the Point of Promises</a>
+    </section>
+
+    <section>
+        <h2>Keeping sanity in the async world</h2>
+        <h4>Results are available in a different call stack...</h4>
+        <ul>
+            <li>"Callbacks hell"</li>
+            <li>There is no one to catch an exception...</li>
+            <li>Calling functions in a loop etc.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Promises in AngularJS</h2>
+        <ul>
+            <li>
+                The $q service based on Kris Kowal's q library
+                <a href="https://github.com/kriskowal/q">https://github.com/kriskowal/q</a>
+            </li>
+            <li>
+                "Next tick" implemented as an async queue the $digest loop
+            </li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Let's see some code</h2>
+        <pre><code ng-non-bindable><%= includeJs('slides/inc/day1/src/promises.spec.js', 'person') %></code></pre>
+    </section>
+
+    <section>
+        <h2>Basic usage scenario</h2>
+        <pre><code ng-non-bindable><%= includeJs('slides/inc/day1/src/promises.spec.js', 'basic') %></code></pre>
+    </section>
+
+    <section>
+        <h2>There are always 2 actors</h2>
+        <ul>
+            <li>I control the future (.resolve, .reject)</li>
+            <li>I depend on future results (.then)</li>
+        </ul>
+        <pre><code ng-non-bindable><%= includeJs('slides/inc/day1/src/promises.spec.js', '2actors') %></code></pre>
+        <pre><code ng-non-bindable><%= includeJs('slides/inc/day1/src/promises.sync.js', '2actors') %></code></pre>
+    </section>
+
+    <section>
+        <h2>Callback aggregation</h2>
+        <pre><code ng-non-bindable><%= includeJs('slides/inc/day1/src/promises.spec.js', 'cbaggregation') %></code></pre>
+        <pre><code ng-non-bindable><%= includeJs('slides/inc/day1/src/promises.sync.js', 'cbaggregation') %></code></pre>
+    </section>
+
+    <section>
+        <h2>Promise chaining</h2>
+        <pre><code ng-non-bindable><%= includeJs('slides/inc/day1/src/promises.spec.js', 'chain') %></code></pre>
+        <pre><code ng-non-bindable><%= includeJs('slides/inc/day1/src/promises.sync.js', 'chain') %></code></pre>
+    </section>
+
+    <section>
+        <h2>Error recovery</h2>
+        <pre><code ng-non-bindable><%= includeJs('slides/inc/day1/src/promises.spec.js', 'recover') %></code></pre>
+        <pre><code ng-non-bindable><%= includeJs('slides/inc/day1/src/promises.sync.js', 'recover') %></code></pre>
+    </section>
+
+    <section>
+        <h2>Explicit rejection</h2>
+        <pre><code ng-non-bindable><%= includeJs('slides/inc/day1/src/promises.spec.js', 'reject') %></code></pre>
+        <pre><code ng-non-bindable><%= includeJs('slides/inc/day1/src/promises.sync.js', 'reject') %></code></pre>
+    </section>
+
+    <section>
+        <h1>Exercise</h1>
+        <p>Change the UserStorage service so it works in the asynchronous way.</p>
+        <p>TDD way, of course.</p>
+        <p>Hint: you will need the $q service.</p>
+    </section>
+
+    <section>
+        <h2>More $q examples</h2>
+    </section>
+
+</section>
