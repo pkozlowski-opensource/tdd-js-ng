@@ -115,7 +115,7 @@ module.exports = function (grunt) {
       }
 
       // read and process line by line removing exercise parts
-      grunt.file.read(exerciseSourcePath).split('\n').forEach(function(line){
+      grunt.file.read(exerciseSourcePath).split('\n').forEach(function (line) {
         if (s(line).contains('ex:start')) {
           inExercise = true;
         } else if (s(line).contains('ex:end')) {
@@ -133,7 +133,34 @@ module.exports = function (grunt) {
     });
   });
 
-    // ========== Internal code generation tasks: slides ==================
+  // ========== Internal code generation tasks: plunks ==================
+
+  grunt.registerTask('preparePlunks', function () {
+
+    //generates plunk.html with a form
+    var plunkTpl = grunt.file.read('grunt/plunk.tpl.html');
+
+    // for each exercise folder
+    grunt.file.expand('src/*').forEach(function (exercisePath) {
+
+      var files = {};
+
+      //for each file in a folder
+      grunt.file.expand(exercisePath + '/exercise/*').forEach(function (exerciseFile) {
+        var fileName = path.basename(exerciseFile);
+        files[fileName] = grunt.file.read(exerciseFile);
+      });
+
+      grunt.file.write(path.join(exercisePath, '/exercise/plunker.html'), grunt.template.process(plunkTpl, {
+        data: {
+          files: files
+        }
+      }));
+
+    });
+  });
+
+  // ========== Internal code generation tasks: slides ==================
 
   grunt.registerTask('prepareSlides', function () {
 
