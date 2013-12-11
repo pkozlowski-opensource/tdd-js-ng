@@ -1,20 +1,27 @@
-angular.module('users', [])
+angular.module('usersAsync', [])
 
   .controller('UsersCtrl', function ($scope, UserStorage) {
 
     $scope.cleanUser = {};
-    $scope.users = UserStorage.getAll();
+
+    function refreshUsersList() {
+      UserStorage.getAll().then(function (users) {
+        $scope.users = users;
+      });
+    }
 
     $scope.save = function () {
-      UserStorage.save($scope.user);
-      $scope.cleanUser = {};
-      $scope.clear();
-      $scope.users = UserStorage.getAll();
+      UserStorage.save($scope.user).then(function () {
+        $scope.cleanUser = {};
+        $scope.clear();
+        refreshUsersList();
+      });
     };
 
     $scope.remove = function (userId) {
-      UserStorage.remove(userId);
-      $scope.users = UserStorage.getAll();
+      UserStorage.remove(userId).then(function() {
+        refreshUsersList();
+      });
     };
 
     $scope.edit = function (user) {
@@ -31,5 +38,6 @@ angular.module('users', [])
     };
 
     $scope.clear();
+    refreshUsersList();
 
   });

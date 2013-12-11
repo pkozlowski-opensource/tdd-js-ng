@@ -73,6 +73,7 @@ describe('users controller', function () {
 
     $scope.remove($scope.users[0].id);
 
+    expect(userStorage.remove).toHaveBeenCalledWith(1);
     expect($scope.users.length).toEqual(0);
   });
 
