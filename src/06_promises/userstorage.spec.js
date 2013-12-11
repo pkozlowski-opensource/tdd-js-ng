@@ -29,9 +29,11 @@ describe('Async user storage', function () {
 
     it('should allow adding and querying users by id', function () {
 
+      //ex:start
       var savedUser = promiseValue(userStorage.save({
         name: 'Pawel'
       }));
+      //ex:end
 
       var byIdUser = promiseValue(userStorage.getById(savedUser.id));
       expect(byIdUser.name).toEqual('Pawel');
@@ -41,14 +43,16 @@ describe('Async user storage', function () {
 
       userStorage.save({name: 'foo'});
       userStorage.save({name: 'bar'});
+      //ex:start
       $scope.$digest();
 
       var allUsers = promiseValue(userStorage.getAll());
       expect(allUsers.length).toEqual(2);
+      //ex:end
     });
 
     it('should support removing users by id', function () {
-
+      //ex:start
       // setup
       userStorage.save({id: '1', value: 'foo'});
       userStorage.save({id: '2', value: 'bar'});
@@ -61,6 +65,7 @@ describe('Async user storage', function () {
       expect(removed.value).toEqual('foo');
       expect(promiseValue(userStorage.getById('1'))).toBeFalsy();
       expect(promiseValue(userStorage.getById('2')).value).toEqual('bar');
+      //ex:end
     });
 
   });
@@ -68,7 +73,9 @@ describe('Async user storage', function () {
   describe('corner cases', function () {
 
     it('should return null for non existing users', function () {
+      //ex:start
       expect(promiseValue(userStorage.getById('foo'))).toBeNull();
+      //ex:end
     });
 
   });

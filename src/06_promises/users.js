@@ -11,17 +11,21 @@ angular.module('usersAsync', [])
     }
 
     $scope.save = function () {
+      //ex:start
       UserStorage.save($scope.user).then(function () {
         $scope.cleanUser = {};
         $scope.clear();
         refreshUsersList();
       });
+      //ex:end
     };
 
     $scope.remove = function (userId) {
+      //ex:start
       UserStorage.remove(userId).then(function() {
         refreshUsersList();
       });
+      //ex:end
     };
 
     $scope.edit = function (user) {

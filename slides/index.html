@@ -65,9 +65,11 @@
                 <section>
     <section>
         <h2>Code samples and exercises</h2>
+        <img src="http://myorevolution.com/wp-content/uploads/HomeTrainingFront.jpg" alt="h3"/>
     </section>
     <section>
         <h2>Problem domain</h2>
+        <h3>Managing users</h3>
     </section>
     <section>
         <h2>Exercises</h2>
@@ -448,15 +450,20 @@ angular.module('myDate', [])
     </section>
 
     <section>
-        <h1>Exercise</h1>
-        <h2 stopwatch="30"></h2>
-        <p>Change the UserStorage service so it works in the asynchronous way.</p>
-        <p>TDD way, of course.</p>
-        <p>Hint: you will need the $q service.</p>
+        <h2>More on $q</h2>
+        <ul>
+            <li>$q.when(value) - wraps JavaScript value as a promise</li>
+            <li>$q.reject(reason) - wraps JavaScript value as a rejected promise</li>
+            <li>$q.all(promise1, promise2) - "parallel calls"</li>
+        </ul>
     </section>
 
     <section>
-        <h2>More $q examples</h2>
+        <h1>Exercise</h1>
+        <h2 stopwatch="30"></h2>
+        <p>Change the UserStorage service so it works in the asynchronous way.</p>
+        <p>Update users' controller to work with the asyn service.</p>
+        <p>Hint: you will need the $q service. Don't forget about $q.when</p>
     </section>
 
 </section>
