@@ -1,40 +1,43 @@
 <!doctype html>
 <html lang="en" ng-app="ngApp">
 
-	<head>
-		<meta charset="utf-8">
+<head>
+    <meta charset="utf-8">
 
-		<title>TDD in JavaScript with AngularJS</title>
+    <title>TDD in JavaScript with AngularJS</title>
 
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0, user-scalable=yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0, user-scalable=yes">
 
-		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/night.css" id="theme">
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/night.css" id="theme">
 
-		<!-- For syntax highlighting -->
-		<link rel="stylesheet" href="lib/css/zenburn.css">
+    <!-- For syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
 
-	</head>
+</head>
 
-	<body>
+<body>
 
-		<div class="reveal">
+<div class="reveal">
 
-			<div class="slides">
+    <div class="slides">
 
-                <section>
-					<h2>TDD in JavaScript</h2>
-					<h3>with AngularJS</h3>
-                    <p>Workshop prepared by Pawel Kozlowski for Allegro</p>
-					<p>
-						<small>
-                            <a href="mailto:pkozlowski.opensource@gmail.com">pkozlowski.opensource@gmail.com</a> /
-                            <a href="https://twitter.com/pkozlowski_os">@pkozlowski_os</a>
-                        </small>
-					</p>
-				</section>
+        <section>
+            <h2>TDD in JavaScript</h2>
 
-                <section>
+            <h3>with AngularJS</h3>
+
+            <p>Workshop prepared by Pawel Kozlowski for Allegro</p>
+
+            <p>
+                <small>
+                    <a href="mailto:pkozlowski.opensource@gmail.com">pkozlowski.opensource@gmail.com</a> /
+                    <a href="https://twitter.com/pkozlowski_os">@pkozlowski_os</a>
+                </small>
+            </p>
+        </section>
+
+        <section>
     <section>
         <h2>My name is Pawel</h2>
 
@@ -47,7 +50,7 @@
     </section>
 </section>
 
-                <section>
+        <section>
     <h2>Tell me more about you</h2>
     <ul>
         <li>Your name</li>
@@ -62,7 +65,7 @@
     </ul>
 </section>
 
-                <section>
+        <section>
     <section>
         <h2>Code samples and exercises</h2>
         <img src="http://myorevolution.com/wp-content/uploads/HomeTrainingFront.jpg" alt="h3"/>
@@ -86,42 +89,42 @@
 </section>
 
 
-                <section>
-                    <h2>Day 1</h2>
-                    <ul>
-                        <li>Introduction to JavaScript testing with Jasmine</li>
-                        <li>Introduction to AngularJS framework</li>
-                        <li>Basics of the AngularJS rendering engine</li>
-                        <li>AngularJS Dependency Injection and module system</li>
-                        <li>Filters - role, limitations and testing</li>
-                        <li>Promise API with $q</li>
-                        <li>XHR in AngularJS - $http and $resource services</li>
-                        <li>Testing asynchronous services ($http, $q, $timeout)</li>
-                    </ul>
-                </section>
+        <section>
+            <h2>Day 1</h2>
+            <ul>
+                <li>Introduction to JavaScript testing with Jasmine</li>
+                <li>Introduction to AngularJS framework</li>
+                <li>Basics of the AngularJS rendering engine</li>
+                <li>AngularJS Dependency Injection and module system</li>
+                <li>Filters - role, limitations and testing</li>
+                <li>Promise API with $q</li>
+                <li>XHR in AngularJS - $http and $resource services</li>
+                <li>Testing asynchronous services ($http, $q, $timeout)</li>
+            </ul>
+        </section>
 
-                <!-- 01 - Introduction to Jasmine -->
-                <section>
-                    <section>
-                        <h2>Introduction to JavaScript testing with Jasmine</h2>
-                        <img src="http://pivotal.github.io/jasmine/images/jasmine_logo.png" />
-                    </section>
-                    <section>
-                        <h2>Jasmine</h2>
-                        <a href="http://pivotal.github.io/jasmine/">http://pivotal.github.io/jasmine/</a>
-                        <br><br>
-                        <ul>
-                            <li>JavaScript testing framework</li>
-                            <li>BDD roots reflected in methods naming</li>
-                            <li>Build-in mocking capabilities</li>
-                            <li>Build-in matchers</li>
-                            <li>Multiple runners</li>
-                        </ul>
-                    </section>
+        <!-- 01 - Introduction to Jasmine -->
+        <section>
+            <section>
+                <h2>Introduction to JavaScript testing with Jasmine</h2>
+                <img src="http://pivotal.github.io/jasmine/images/jasmine_logo.png"/>
+            </section>
+            <section>
+                <h2>Jasmine</h2>
+                <a href="http://pivotal.github.io/jasmine/">http://pivotal.github.io/jasmine/</a>
+                <br><br>
+                <ul>
+                    <li>JavaScript testing framework</li>
+                    <li>BDD roots reflected in methods naming</li>
+                    <li>Build-in mocking capabilities</li>
+                    <li>Build-in matchers</li>
+                    <li>Multiple runners</li>
+                </ul>
+            </section>
 
-                    <section>
-                        <h3>Anatomy of a Jasmine test</h3>
-<pre><code ng-non-bindable>describe('User storage as a global constructor function', function () {
+            <section>
+                <h3>Anatomy of a Jasmine test</h3>
+                <pre><code ng-non-bindable>describe('User storage as a global constructor function', function () {
 
   var userStorage;
   beforeEach(function () {
@@ -138,38 +141,41 @@
       expect(userStorage.getById(user.id).name).toEqual('Pawel');
     });
 </code></pre>
-                    </section>
+            </section>
 
-                    <section>
-                        <h1>Exercise</h1>
-                        <h2 stopwatch="30"></h2>
-                        <p>Write and run Jasmine tests for a simple <i>UserStorage</i> class.</p>
-                        <p>There is a skeleton of a class and a test ready.</p>
-                    </section>
-                </section>
+            <section>
+                <h1>Exercise</h1>
 
-                <!-- 02 - Introduction to AngularJS -->
+                <h2 stopwatch="30"></h2>
 
-                <section>
-                    <section>
-                        <h1>Meet AngularJS</h1>
-                        <img src="https://raw.github.com/angular/angular.js/master/images/logo/AngularJS-Shield.exports/AngularJS-Shield-large.png"/>
-                    </section>
-                    <section>
-                        <h2>AngularJS framework</h2>
-                        <ul>
-                            <li>Complete solution for in-browser web applications</li>
-                            <li>Started and maintained by Google</li>
-                            <li>Open source, many contributors outside Google</li>
-                            <li>Revolutionary in several aspects</li>
-                            <li>Strong focus on testability</li>
-                        </ul>
-                    </section>
-                    <section>
-                        <h2>Hello, {{name}}!</h2>
-                        <input type="text" ng-model="name"/>
+                <p>Write and run Jasmine tests for a simple <i>UserStorage</i> class.</p>
+
+                <p>There is a skeleton of a class and a test ready.</p>
+            </section>
+        </section>
+
+        <!-- 02 - Introduction to AngularJS -->
+
+        <section>
+            <section>
+                <h1>Meet AngularJS</h1>
+                <img src="https://raw.github.com/angular/angular.js/master/images/logo/AngularJS-Shield.exports/AngularJS-Shield-large.png"/>
+            </section>
+            <section>
+                <h2>AngularJS framework</h2>
+                <ul>
+                    <li>Complete solution for in-browser web applications</li>
+                    <li>Started and maintained by Google</li>
+                    <li>Open source, many contributors outside Google</li>
+                    <li>Revolutionary in several aspects</li>
+                    <li>Strong focus on testability</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Hello, {{name}}!</h2>
+                <input type="text" ng-model="name"/>
 <pre><code ng-non-bindable>
-&lt;!DOCTYPE html&gt;
+    &lt;!DOCTYPE html&gt;
 &lt;html ng-app&gt;
 &lt;head&gt;
     &lt;script src=&quot;../../lib/angular.js&quot;&gt;&lt;/script&gt;
@@ -182,14 +188,14 @@
 &lt;/body&gt;
 &lt;/html&gt;
 </code></pre>
-                    </section>
-                </section>
+            </section>
+        </section>
 
-                <!-- 03 - AngularJS rendering engine -->
+        <!-- 03 - AngularJS rendering engine -->
 
-                <!-- 04 - AngularJS modules and DI -->
+        <!-- 04 - AngularJS modules and DI -->
 
-                <section>
+        <section>
 
     <section>
         <h2>More on the rendering engine</h2>
@@ -271,7 +277,7 @@ angular.module('myDate', [])
 
 </section>
 
-                <section>
+        <section>
     <section>
         <h2>Promises with $q</h2>
         <img src="https://rawgithub.com/promises-aplus/promises-spec/master/logo.svg" width="200px" height="200px"/>
@@ -469,57 +475,180 @@ angular.module('myDate', [])
 </section>
 
 
-                <!-- 07 - Communicating with a back-end in AngularJS - $http -->
+        <section>
 
-                <!-- 08 - Communicating with a restful back-end in AngularJS - $resource and $http -->
+    <section>
+        <h2>More on asynchronous testing</h2>
+        <img src="http://farm1.staticflickr.com/185/376073377_71dfc9eb04.jpg" alt=""/>
+    </section>
 
-                <section>
-                    <h1>That's it for today</h1>
-                    <h4>See you tomorrow at 09:00 a.m.</h4>
-                </section>
+    <section>
+        <h2>How to test this controller?</h2>
+        <pre><code ng-non-bindable>angular.module('timeoutNotify', [])
 
-                <section>
-                    <h1>That's all!</h1>
-                    <h3>Thank you for having me.</h3>
-                </section>
+  .controller('TimeBoundController', function ($scope, $timeout) {
 
-			</div>
-		</div>
+    $timeout(function () {
+      return 'Your time is up!';
+    }, 20*60*1000).then(function (msg) {
+        $scope.msg = msg;
+      });
 
-		<script src="lib/js/head.min.js"></script>
-        <script src="../lib/angular.js"></script>
-        <script src="js/ngApp.js"></script>
-		<script src="js/reveal.min.js"></script>
+    // other methods here
+  });</code></pre>
+    </section>
 
-		<script>
+    <section>
+        <h2>Time machine to the rescue!</h2>
+        <pre><code ng-non-bindable>  it('should send notification after 20 minutes', function () {
 
-			// Full list of configuration options available here:
-			// https://github.com/hakimel/reveal.js#configuration
-			Reveal.initialize({
-				controls: true,
-				progress: true,
-				history: true,
-				center: true,
+    var ctrl = $controller('TimeBoundController', {
+      $scope: $scope
+    });
 
-                theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
-				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+    expect($scope.msg).toBeUndefined();
 
-                minScale: 0.2,
-                maxScale: 3.0,
+    //fast-forward 20 minutes
+    $timeout.flush();
 
-				// Parallax scrolling
-				// parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
-				// parallaxBackgroundSize: '2100px 900px',
+    expect($scope.msg).toEqual('Your time is up!');
+  });</code></pre>
+    </section>
 
-				// Optional libraries used to extend on reveal.js
-				dependencies: [
-					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
-					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } }
-				]
-			});
+    <section>
+        <h2>AngularJS mocks allow us to preserve asynchronous semantics</h2>
+        <h2>... and execute code in the synchronous way!</h2>
+    </section>
 
-		</script>
+</section>
 
-	</body>
+        <!-- 07 - Communicating with a back-end in AngularJS - $http -->
+
+        <!-- 08 - Communicating with a restful back-end in AngularJS - $resource and $http -->
+
+        <section>
+            <h1>That's it for today</h1>
+            <h4>See you tomorrow at 09:00 a.m.</h4>
+        </section>
+
+        <section>
+            <h2>Day 2</h2>
+            <ul>
+                <li>Directives and DOM-based unit testing</li>
+                <li>Performance characteristics of AngularJS</li>
+                <li>Real-life TDD development workflow with Karma runner</li>
+                <li>Buffer for Q&A or any other custom topics identified during the Day 1</li>
+                <li>Continuing your journey with AngularJS</li>
+            </ul>
+        </section>
+
+        <section>
+            <section>
+                <h2>Guide to fast tests</h2>
+                <img src="http://www.hdwallpapersinn.com/wp-content/uploads/2012/06/ferrari_hd_widescreen-wide.jpg" alt=""/>
+            </section>
+            <section><ul>
+                <li>Simulate asynchronous operations with synchronous calls</li>
+                <li>Preload templates into $templateCache</li>
+                <li>Work with DOM fragments</li>
+            </ul></section>
+        </section>
+
+        <section>
+            <section>
+                <h1>On your own</h1>
+            </section>
+            <section>
+                <h2>Learning</h2>
+                <ul>
+                    <li>Books</li>
+                    <li>egghead.io</li>
+                    <li>YourTube channel</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Getting help</h2>
+                <ul>
+                    <li>StackOverflow</li>
+                    <li><a href="mailto:angular@googlegroups.com">angular@googlegroups.com</a></li>
+                    <li>#angularjs freenode IRC</li>
+                    <li>G+ community</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Getting help - be a good citizen</h2>
+            </section>
+            <section>
+                <h2>Contributting to AngularJS</h2>
+                <h3>Issues</h3>
+                <ul>
+                    <li>Good, minimal reproduce scenario is the key</li>
+                    <li>A failing unit test is even better!</li>
+                    <li>Testing the latest build</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Contributting to AngularJS</h2>
+                <h3>Pull requests</h3>
+                <ul>
+                    <li>Opening a good pull request</li>
+                    <li>The process: CLI, commit conventions etc.</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Interesting projects and extensions</h2>
+            </section>
+        </section>
+
+        <section>
+            <h1>That's all!</h1>
+            <h3>Thank you for having me.</h3>
+        </section>
+
+        <section><img src="http://www.e-sochaczew.pl/foto_news/8956_bombka.jpg" alt=""/></section>
+    </div>
+</div>
+
+<script src="lib/js/head.min.js"></script>
+<script src="../lib/angular.js"></script>
+<script src="js/ngApp.js"></script>
+<script src="js/reveal.min.js"></script>
+
+<script>
+
+    // Full list of configuration options available here:
+    // https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+
+        theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+        transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+        minScale: 0.2,
+        maxScale: 3.0,
+
+        // Parallax scrolling
+        // parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+        // parallaxBackgroundSize: '2100px 900px',
+
+        // Optional libraries used to extend on reveal.js
+        dependencies: [
+            { src: 'lib/js/classList.js', condition: function () {
+                return !document.body.classList;
+            } },
+            { src: 'plugin/highlight/highlight.js', async: true, callback: function () {
+                hljs.initHighlightingOnLoad();
+            } },
+            { src: 'plugin/zoom-js/zoom.js', async: true, condition: function () {
+                return !!document.body.classList;
+            } }
+        ]
+    });
+
+</script>
+
+</body>
 </html>
