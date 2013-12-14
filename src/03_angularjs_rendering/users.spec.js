@@ -3,6 +3,7 @@ describe('users controller', function () {
   var $scope;
   var usersCtrl;
 
+  // slide:start:ctrl;
   beforeEach(inject(function (_$rootScope_, _$controller_) {
     $scope = _$rootScope_;
     usersCtrl = _$controller_('UsersCtrl', {
@@ -14,6 +15,7 @@ describe('users controller', function () {
     expect($scope.user).toEqual({});
     expect($scope.users.length).toEqual(0);
   });
+  // slide:end
 
   it('should save a current user and update users list', function () {
 

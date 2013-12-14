@@ -28,7 +28,7 @@
             <h3>with AngularJS</h3>
 
             <p>Workshop prepared by Pawel Kozlowski for Allegro</p>
-
+            <p>December 2013</p>
             <p>
                 <small>
                     <a href="mailto:pkozlowski.opensource@gmail.com">pkozlowski.opensource@gmail.com</a> /
@@ -44,82 +44,27 @@
         <%= include('slides/inc/day1/03_practical_info.html') %>
 
         <section>
-            <h2>Day 1</h2>
+            <h1>Day 1</h1>
             <ul>
                 <li>Introduction to JavaScript testing with Jasmine</li>
                 <li>Introduction to AngularJS framework</li>
                 <li>Basics of the AngularJS rendering engine</li>
                 <li>AngularJS Dependency Injection and module system</li>
                 <li>Filters - role, limitations and testing</li>
+            </ul>
+            <hr/>
+            <ul>
                 <li>Promise API with $q</li>
-                <li>XHR in AngularJS - $http and $resource services</li>
                 <li>Testing asynchronous services ($http, $q, $timeout)</li>
+                <li>XHR in AngularJS - $http and $resource services</li>
             </ul>
         </section>
 
-        <!-- 01 - Introduction to Jasmine -->
-        <section>
-            <section>
-                <h2>Introduction to JavaScript testing with Jasmine</h2>
-                <img src="http://pivotal.github.io/jasmine/images/jasmine_logo.png"/>
-            </section>
-            <section>
-                <h2>Jasmine</h2>
-                <a href="http://pivotal.github.io/jasmine/">http://pivotal.github.io/jasmine/</a>
-                <br><br>
-                <ul>
-                    <li>JavaScript testing framework</li>
-                    <li>BDD roots reflected in methods naming</li>
-                    <li>Build-in mocking capabilities</li>
-                    <li>Build-in matchers</li>
-                    <li>Multiple runners</li>
-                </ul>
-            </section>
+        <%= include('slides/inc/day1/04_jasmine.html') %>
 
-            <section>
-                <h3>Anatomy of a Jasmine test</h3>
-                <pre><code ng-non-bindable><%= includeJs('src/01_jasmine_intro/userstorage.spec.js', 'test')
-                    %></code></pre>
-            </section>
+        <%= include('slides/inc/day1/05_meet_ng.html') %>
 
-            <section>
-                <h1>Exercise</h1>
-
-                <h2 stopwatch="30"></h2>
-
-                <p>Write and run Jasmine tests for a simple <i>UserStorage</i> class.</p>
-
-                <p>There is a skeleton of a class and a test ready.</p>
-            </section>
-        </section>
-
-        <!-- 02 - Introduction to AngularJS -->
-
-        <section>
-            <section>
-                <h1>Meet AngularJS</h1>
-                <img src="https://raw.github.com/angular/angular.js/master/images/logo/AngularJS-Shield.exports/AngularJS-Shield-large.png"/>
-            </section>
-            <section>
-                <h2>AngularJS framework</h2>
-                <ul>
-                    <li>Complete solution for in-browser web applications</li>
-                    <li>Started and maintained by Google</li>
-                    <li>Open source, many contributors outside Google</li>
-                    <li>Revolutionary in several aspects</li>
-                    <li>Strong focus on testability</li>
-                </ul>
-            </section>
-            <section>
-                <h2>Hello, {{name}}!</h2>
-                <input type="text" ng-model="name"/>
-<pre><code ng-non-bindable>
-    <%= includeHtml('src/02_angularjs_intro/index.html') %>
-</code></pre>
-            </section>
-        </section>
-
-        <!-- 03 - AngularJS rendering engine -->
+        <%= include('slides/inc/day1/06_rendering.html') %>
 
         <!-- 04 - AngularJS modules and DI -->
 
@@ -129,9 +74,7 @@
 
         <%= include('slides/inc/day1/07_async_testing.html') %>
 
-        <!-- 07 - Communicating with a back-end in AngularJS - $http -->
-
-        <!-- 08 - Communicating with a restful back-end in AngularJS - $resource and $http -->
+        <%= include('slides/inc/day1/08_http.html') %>
 
         <section>
             <h1>That's it for today</h1>
@@ -237,11 +180,6 @@
         minScale: 0.2,
         maxScale: 3.0,
 
-        // Parallax scrolling
-        // parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
-        // parallaxBackgroundSize: '2100px 900px',
-
-        // Optional libraries used to extend on reveal.js
         dependencies: [
             { src: 'lib/js/classList.js', condition: function () {
                 return !document.body.classList;

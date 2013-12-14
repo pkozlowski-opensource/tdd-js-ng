@@ -28,7 +28,7 @@
             <h3>with AngularJS</h3>
 
             <p>Workshop prepared by Pawel Kozlowski for Allegro</p>
-
+            <p>December 2013</p>
             <p>
                 <small>
                     <a href="mailto:pkozlowski.opensource@gmail.com">pkozlowski.opensource@gmail.com</a> /
@@ -39,19 +39,28 @@
 
         <section>
     <section>
-        <h2>My name is Pawel</h2>
-
-        <h2>I'm the open-source enthusiast</h2>
-        <!-- OS Badges -->
+        <h2>My name is Pawel Kozlowski</h2>
+        <h3>I edit text files for living</h3>
+        <ul>
+            <li><a href="mailto:pkozlowski.opensource@gmail.com">pkozlowski.opensource@gmail.com</a></li>
+            <li><a href="https://twitter.com/pkozlowski_os">@pkozlowski_os</a></li>
+            <li><a href="https://github.com/pkozlowski-opensource">https://github.com/pkozlowski-opensource</a></li>
+            <li><a href="stackoverflow.com/users/1418796/pkozlowski-opensource">stackoverflow.com/users/1418796/pkozlowski-opensource</a></li>
+        </ul>
     </section>
 
     <section>
         <img src="http://www.packtpub.com/sites/default/files/1820OS.jpg" alt=""/>
     </section>
+
+    <section>
+        <h2>I'm into open-source</h2>
+    </section>
+
 </section>
 
         <section>
-    <h2>Tell me more about you</h2>
+    <h2>Tell us more about you</h2>
     <ul>
         <li>Your name</li>
         <li>Your experience with:
@@ -66,65 +75,101 @@
 </section>
 
         <section>
+    <h2>Organizational details</h2>
+    <ul>
+        <li>2 days, 09:00 ~ 18:00</li>
+        <li>Lunch break 13:00 - 14:00</li>
+        <li>2 other breaks (15-30 min) during the day</li>
+        <li>Please, switch off your mobile devices (if possible)</li>
+    </ul>
+</section>
+
+<section>
+    <h2>Please, do ask questions</h2>
+    <ul>
+        <li>Short ones at any time</li>
+        <li>A dedicated slot for more involved topics</li>
+    </ul>
+</section>
+
+<section>
+
     <section>
         <h2>Code samples and exercises</h2>
         <img src="http://myorevolution.com/wp-content/uploads/HomeTrainingFront.jpg" alt="h3"/>
     </section>
+
     <section>
         <h2>Problem domain</h2>
-        <h3>Managing users</h3>
+        <h3>CRUD - AngularJS at its best</h3>
+        <pre><code ng-non-bindable>var UserStorage = function() {
+
+  this.save = function(user) { ... };
+
+  this.getById = function(userId) { ...  };
+  this.getAll = function() { ...  };
+
+  this.remove = function(userId) { ...  };
+};</code></pre>
+        <a href="http://localhost:8000/src/03_angularjs_rendering/demo.html" target="_blank">DEMO</a>
     </section>
+
     <section>
-        <h2>Exercises</h2>
+        <h2>Code samples</h2>
+        <a href="">GitHub</a>
     </section>
+
+    <section>
+        <h2>Tooling</h2>
+        <ul>
+            <li>karma-runner</li>
+            <li>node.js</li>
+            <li>Grunt</li>
+        </ul>
+    </section>
+
 </section>
 
-<section>
-    <h2>Organizational details</h2>
-    <ul>
-        <li>Lunch break 13:00 - 14:00</li>
-        <li>2 other breaks (15-30 min) during the day</li>
-        <li>Please, switch off your mobile devices if possible</li>
-    </ul>
-</section>
 
 
         <section>
-            <h2>Day 1</h2>
+            <h1>Day 1</h1>
             <ul>
                 <li>Introduction to JavaScript testing with Jasmine</li>
                 <li>Introduction to AngularJS framework</li>
                 <li>Basics of the AngularJS rendering engine</li>
                 <li>AngularJS Dependency Injection and module system</li>
                 <li>Filters - role, limitations and testing</li>
+            </ul>
+            <hr/>
+            <ul>
                 <li>Promise API with $q</li>
-                <li>XHR in AngularJS - $http and $resource services</li>
                 <li>Testing asynchronous services ($http, $q, $timeout)</li>
+                <li>XHR in AngularJS - $http and $resource services</li>
             </ul>
         </section>
 
-        <!-- 01 - Introduction to Jasmine -->
         <section>
-            <section>
-                <h2>Introduction to JavaScript testing with Jasmine</h2>
-                <img src="http://pivotal.github.io/jasmine/images/jasmine_logo.png"/>
-            </section>
-            <section>
-                <h2>Jasmine</h2>
-                <a href="http://pivotal.github.io/jasmine/">http://pivotal.github.io/jasmine/</a>
-                <br><br>
-                <ul>
-                    <li>JavaScript testing framework</li>
-                    <li>BDD roots reflected in methods naming</li>
-                    <li>Build-in mocking capabilities</li>
-                    <li>Build-in matchers</li>
-                    <li>Multiple runners</li>
-                </ul>
-            </section>
+    <section>
+        <h2>Introduction to JavaScript testing with Jasmine</h2>
+        <img src="http://pivotal.github.io/jasmine/images/jasmine_logo.png"/>
+    </section>
+    <section>
+        <h2>Jasmine</h2>
+        <a href="http://pivotal.github.io/jasmine/">http://pivotal.github.io/jasmine/</a>
+        <br><br>
+        <ul>
+            <li>JavaScript testing framework</li>
+            <li>BDD roots visible in its syntax</li>
+            <li>Build-in mocking capabilities</li>
+            <li>Build-in matchers</li>
+            <li>Various runners (HTML, Karma etc.)</li>
+        </ul>
+    </section>
 
-            <section>
-                <h3>Anatomy of a Jasmine test</h3>
-                <pre><code ng-non-bindable>describe('User storage as a global constructor function', function () {
+    <section>
+        <h3>Anatomy of a Jasmine test</h3>
+        <pre><code ng-non-bindable>describe('User storage as a global constructor function', function () {
 
   var userStorage;
   beforeEach(function () {
@@ -141,41 +186,48 @@
       expect(userStorage.getById(user.id).name).toEqual('Pawel');
     });
 </code></pre>
-            </section>
+        <h4>Let's see some more code...</h4>
+    </section>
 
-            <section>
-                <h1>Exercise</h1>
-
-                <h2 stopwatch="30"></h2>
-
-                <p>Write and run Jasmine tests for a simple <i>UserStorage</i> class.</p>
-
-                <p>There is a skeleton of a class and a test ready.</p>
-            </section>
-        </section>
-
-        <!-- 02 - Introduction to AngularJS -->
+    <section>
+        <h1>Exercise</h1>
+        <h2 stopwatch="30"></h2>
+        <p>Write and run Jasmine tests for a simple <i>UserStorage</i> class.</p>
+        <p>There is a skeleton of a class and a test ready.</p>
+    </section>
+</section>
 
         <section>
-            <section>
-                <h1>Meet AngularJS</h1>
-                <img src="https://raw.github.com/angular/angular.js/master/images/logo/AngularJS-Shield.exports/AngularJS-Shield-large.png"/>
-            </section>
-            <section>
-                <h2>AngularJS framework</h2>
-                <ul>
-                    <li>Complete solution for in-browser web applications</li>
-                    <li>Started and maintained by Google</li>
-                    <li>Open source, many contributors outside Google</li>
-                    <li>Revolutionary in several aspects</li>
-                    <li>Strong focus on testability</li>
-                </ul>
-            </section>
-            <section>
-                <h2>Hello, {{name}}!</h2>
-                <input type="text" ng-model="name"/>
-<pre><code ng-non-bindable>
-    &lt;!DOCTYPE html&gt;
+
+    <section>
+        <h1>Meet AngularJS</h1>
+        <img src="https://raw.github.com/angular/angular.js/master/images/logo/AngularJS-Shield.exports/AngularJS-Shield-large.png"/>
+    </section>
+
+    <section>
+        <h2>AngularJS framework</h2>
+        <ul>
+            <li>Complete solution for in-browser web applications</li>
+            <li>Created and maintained by Google</li>
+            <li>Open source, many contributors from outside of Google</li>
+            <li>Started over 4 years ago, exploding popularity</li>
+            <li>Revolutionary in several aspects</li>
+            <li>Strong focus on testability</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Bits and pieces</h2>
+        <ul>
+            <li><a href="www.angularjs.org">www.angularjs.org</a></li>
+            <li><a href="code.angularjs.org">code.angularjs.org</a></li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Hello, {{name}}!</h2>
+        <input type="text" ng-model="name"/>
+        <pre><code ng-non-bindable>&lt;!DOCTYPE html&gt;
 &lt;html ng-app&gt;
 &lt;head&gt;
     &lt;script src=&quot;../../lib/angular.js&quot;&gt;&lt;/script&gt;
@@ -186,12 +238,80 @@
     &lt;input type=&quot;text&quot; ng-model=&quot;name&quot;/&gt;
 
 &lt;/body&gt;
-&lt;/html&gt;
-</code></pre>
-            </section>
-        </section>
+&lt;/html&gt;</code></pre>
+    </section>
 
-        <!-- 03 - AngularJS rendering engine -->
+    <section>
+        <h2>Be ready to rewrite your brain!</h2>
+        Quote from Igor
+    </section>
+
+    <section>
+        Rolercoster
+        <img src="" alt=""/>
+    </section>
+
+    <section>
+        <h1>Exercise</h1>
+        <h2 stopwatch="5"></h2>
+        <p>Create your first "Hello World!" application with AngularJS!</p>
+    </section>
+
+</section>
+
+
+        <section>
+
+    <section>
+        <h1>AngularJS rendering engine</h1>
+    </section>
+
+    <section>
+        <h2>From static web to...</h2>
+    </section>
+
+    <section>
+        <h2>From declarative HTML to...</h2>
+    </section>
+
+    <section>
+        <h2>Superheroic framework to the rescue!</h2>
+    </section>
+
+    <section>
+        <h2>It is not string-based template</h2>
+    </section>
+
+    <section>
+        <h2>Live coding!</h2>
+        <ul>
+            <li>MVC in </li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Testing controllers</h2>
+        <pre><code ng-non-bindable>  beforeEach(inject(function (_$rootScope_, _$controller_) {
+    $scope = _$rootScope_;
+    usersCtrl = _$controller_('UsersCtrl', {
+      '$scope': $scope
+    });
+  }));
+
+  it('should initialize scope with an empty users collection', function () {
+    expect($scope.user).toEqual({});
+    expect($scope.users.length).toEqual(0);
+  });</code></pre>
+    </section>
+
+    <section>
+        <h1>Exercise</h1>
+        <h2 stopwatch="40"></h2>
+        <p>Make the user-management page live.</p>
+        <p>Write tests for the controller.</p>
+    </section>
+
+</section>
 
         <!-- 04 - AngularJS modules and DI -->
 
@@ -522,9 +642,64 @@ angular.module('myDate', [])
 
 </section>
 
-        <!-- 07 - Communicating with a back-end in AngularJS - $http -->
+        <section>
+    <section>
+        <h2>Talking to a back-end</h2>
+        <img src="http://www.itrnews.com/images/2012/2012-12-26-Mainframe.jpg" alt=""/>
+    </section>
 
-        <!-- 08 - Communicating with a restful back-end in AngularJS - $resource and $http -->
+    <section>
+        <h2>Restful API with MongoLab</h2>
+        <img src="https://mongolab.com/base/img/mongolab-logo-250x65.png" alt=""/><br>
+        <a target="_blank" href="https://support.mongolab.com/entries/20433053-Is-there-a-REST-API-for-MongoDB-">REST MongoDB API in the cloud</a><br>
+    </section>
+
+    <section>
+        <h2>$http service</h2>
+        <pre><code ng-non-bindable>    UserStorage.getById = function (userId) {
+      return $http.get(BASE_URL + '/' + userId, {params: {
+        apiKey: API_KEY
+      }}).then(function(response) {
+          return response.data;
+        });
+    };</code></pre>
+    </section>
+
+    <section>
+        <h2>$http building blocks</h2>
+        $http -> $httpBackend
+    </section>
+
+    <section>
+        <h2>Testing interactions with $http</h2>
+        <pre><code ng-non-bindable>    it('should support querying users by id', function () {
+
+      $httpBackend.expectGET(withUrl('/123')).respond(testUser);
+
+      userStorage.getById('123').then(function(userById) {
+          expect(userById._id.$oid).toEqual('123');
+        }, onFail);
+
+      $httpBackend.flush();
+    });</code></pre>
+        <pre><code ng-non-bindable>  afterEach(function() {
+    $httpBackend.verifyNoOutstandingExpectation();
+    $httpBackend.verifyNoOutstandingRequest();
+  });</code></pre>
+    </section>
+
+    <section>
+        <h2>2 ways of expressing expectations</h2>
+        expect vs. when
+    </section>
+
+    <section>
+        <h1>Exercise</h1>
+        <h2 stopwatch="30"></h2>
+        <p>Change the UserStorage service to work with the MongoLab REST API.</p>
+        <p>Write relevant tests.</p>
+    </section>
+</section>
 
         <section>
             <h1>That's it for today</h1>
@@ -630,11 +805,6 @@ angular.module('myDate', [])
         minScale: 0.2,
         maxScale: 3.0,
 
-        // Parallax scrolling
-        // parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
-        // parallaxBackgroundSize: '2100px 900px',
-
-        // Optional libraries used to extend on reveal.js
         dependencies: [
             { src: 'lib/js/classList.js', condition: function () {
                 return !document.body.classList;
