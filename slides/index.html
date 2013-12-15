@@ -252,7 +252,7 @@
         <h2>Hello, {{name}}!</h2>
         <input type="text" ng-model="name"/>
         <pre><code ng-non-bindable>&lt;!DOCTYPE html&gt;
-&lt;!-- exercise:start --&gt;
+&lt;!-- ex:start --&gt;
 &lt;html ng-app&gt;
 &lt;head&gt;
     &lt;script src=&quot;../../lib/angular.js&quot;&gt;&lt;/script&gt;
@@ -264,14 +264,14 @@
 
 &lt;/body&gt;
 &lt;/html&gt;
-&lt;!-- exercise:end --&gt;</code></pre>
+&lt;!-- ex:end --&gt;</code></pre>
     </section>
 
     <section>
         <h2>Bits and pieces</h2>
         <ul>
-            <li><a href="www.angularjs.org">www.angularjs.org</a></li>
-            <li><a href="code.angularjs.org">code.angularjs.org</a></li>
+            <li><a href="www.angularjs.org" target="_blank">www.angularjs.org</a></li>
+            <li><a href="code.angularjs.org" target="_blank">code.angularjs.org</a></li>
         </ul>
     </section>
 
@@ -291,26 +291,80 @@
     </section>
 
     <section>
-        <h2>From static web to...</h2>
+        <h2>From static web to... web applications!</h2>
     </section>
 
     <section>
         <h2>From declarative HTML to...</h2>
+        <table style="width: 100%">
+            <tr>
+                <td style="width: 40%">
+<pre><code><span id="greeting">
+    Hello World!
+</span></code></pre>
+                </td>
+                <td style="width: 60%">
+                    <pre><code ng-non-bindable>var isIE = document.attachEvent;
+
+var addEventListener = isIE  ? function (e, t, fn) {
+    e.attachEvent('on' + t, fn);
+  } : function (e, t, fn) {
+    e.addEventListener(t, fn, false);
+  };
+
+addEventListener(document, 'load', function () {
+  var greeting = document.getElementById('greeting');
+  if (isIE) {
+    greeting.innerText = 'Hello World!';
+  } else {
+    greeting.textContent = 'Hello World!';
+  }
+});</code></pre>
+                </td>
+            </tr>
+        </table>
     </section>
 
     <section>
-        <h2>Superheroic framework to the rescue!</h2>
+        <h2>We need a superheroic framework!</h2>
+        <img src="http://img.gawkerassets.com/img/18lshnw1rawjgjpg/ku-xlarge.jpg" alt=""/>
     </section>
 
     <section>
-        <h2>It is not string-based template</h2>
+        <h2>We need better abstractions</h2>
+        <blockquote>
+            "Angular is what the web browser would have been, had it been designed for applications"
+        </blockquote>
+        <p><i>Miško Hevery</i></p>
+        <br>
+<pre><code ng-non-bindable><span>Hello {{name}}!</span></code></pre>
     </section>
 
     <section>
         <h2>Live coding!</h2>
-        <ul>
-            <li>MVC in </li>
-        </ul>
+        <h4>To see some of AngularJS concepts in action.</h4>
+    </section>
+
+    <section>
+        <h2>It is not string-based template!</h2>
+        <table style="width: 100%">
+            <tr>
+                <td style="width: 50%">
+                    <h4>String-based templates</h4>
+                    <img src="http://docs.angularjs.org/img/One_Way_Data_Binding.png" alt=""/>
+                </td>
+                <td style="width: 50%">
+                    <h4>AngularJS</h4>
+                    <img src="http://docs.angularjs.org/img/Two_Way_Data_Binding.png" alt=""/>
+                </td>
+            </tr>
+        </table>
+    </section>
+
+    <section>
+        <h2>How does the magic happen?</h2>
+        <h3>The $digest loop</h3>
+        <img src="http://docs.angularjs.org/img/guide/concepts-runtime.png" alt=""/>
     </section>
 
     <section>

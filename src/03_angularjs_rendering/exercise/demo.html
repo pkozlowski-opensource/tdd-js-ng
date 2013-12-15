@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html ng-app>
+<html>
 <head>
     <link rel="stylesheet" href="../../assets/bootstrap.css"/>
     <script src="../../lib/angular.js"></script>
     <script src="userstorage.js"></script>
     <script src="users.js"></script>
 </head>
-<body ng-controller="UsersCtrl">
+<body>
 
 <div class="well">
     <h3>Manage users</h3>
@@ -17,18 +17,18 @@
         </div>
         <div class="form-group">
             <label for="login">Login: </label>
-            <input type="text" ng-model="user.login" id="login" class="form-control"/>
+            <input type="text"  id="login" class="form-control"/>
         </div>
         <div class="form-group">
             <label for="name">Name: </label>
-            <input type="text" ng-model="user.name" id="name" class="form-control"/>
+            <input type="text"  id="name" class="form-control"/>
         </div>
         <div class="form-group">
             <label for="birthDate">Date of birth: </label>
-            <input type="text" ng-model="user.birthDate" id="birthDate" class="form-control"/>
+            <input type="text"  id="birthDate" class="form-control"/>
         </div>
-        <button ng-click="save()" ng-disabled="!hasEdits()" class="btn btn-primary">Save</button>
-        <button ng-click="clear()" ng-disabled="!hasEdits()" class="btn btn-warning">Clear</button>
+        <button  ng-disabled="!hasEdits()" class="btn btn-primary">Save</button>
+        <button  ng-disabled="!hasEdits()" class="btn btn-warning">Clear</button>
     </form>
 </div>
 
@@ -40,14 +40,14 @@
         <th>Date of birth</th>
         <th>Tools</th>
     </tr>
-    <tr ng-repeat="user in users">
+    <tr >
         <td>{{user.id}}</td>
         <td>{{user.login}}</td>
         <td>{{user.name}}</td>
         <td>{{user.birthDate}}</td>
         <td>
-            <span ng-click="edit(user)" title="Edit" class="glyphicon glyphicon-edit"></span>
-            <span ng-click="remove(user.id)" title="Remove" class="glyphicon glyphicon-trash"></span>
+            <span  title="Edit" class="glyphicon glyphicon-edit"></span>
+            <span  title="Remove" class="glyphicon glyphicon-trash"></span>
         </td>
     </tr>
 </table>
