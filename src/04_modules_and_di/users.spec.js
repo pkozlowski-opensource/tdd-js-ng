@@ -3,6 +3,7 @@ describe('users controller', function () {
   var $scope, $controller;
   var userStorage;
 
+  //slide:start:module;
   beforeEach(module('users'));
   // let's load real dependencies so those are called if not mocked
   beforeEach(module('userstorage'));
@@ -12,6 +13,7 @@ describe('users controller', function () {
     $controller = _$controller_;
     userStorage = _UserStorage_;
   }));
+  //slide:end
 
   it('should initialize scope with an empty users collection', function () {
     usersCtrl = $controller('UsersCtrl', {

@@ -1,3 +1,4 @@
+//slide:start:ctrl;
 angular.module('users', [])
 
   .controller('UsersCtrl', function ($scope, UserStorage) {
@@ -11,6 +12,8 @@ angular.module('users', [])
       $scope.clear();
       $scope.users = UserStorage.getAll();
     };
+
+    //slide:end
 
     $scope.remove = function (userId) {
       UserStorage.remove(userId);
