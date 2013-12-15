@@ -3,6 +3,7 @@ angular.module('users', [])
 
   .controller('UsersCtrl', function ($scope, UserStorage) {
 
+    // ex:start
     $scope.cleanUser = {};
     $scope.users = UserStorage.getAll();
 
@@ -34,5 +35,5 @@ angular.module('users', [])
     };
 
     $scope.clear();
-
+    //ex:end
   });

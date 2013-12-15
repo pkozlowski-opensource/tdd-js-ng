@@ -33,10 +33,10 @@ describe('Async user storage', function () {
       var savedUser = promiseValue(userStorage.save({
         name: 'Pawel'
       }));
-      //ex:end
 
       var byIdUser = promiseValue(userStorage.getById(savedUser.id));
       expect(byIdUser.name).toEqual('Pawel');
+      //ex:end
     });
 
     it('should allow querying all users', function () {

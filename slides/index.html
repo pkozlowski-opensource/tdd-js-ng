@@ -42,18 +42,20 @@
         <h2>My name is Pawel Kozlowski</h2>
         <h3>I edit text files for living</h3>
         <ul>
+            <li><a href="https://github.com/pkozlowski-opensource">https://github.com/pkozlowski-opensource</a></li>
             <li><a href="mailto:pkozlowski.opensource@gmail.com">pkozlowski.opensource@gmail.com</a></li>
             <li><a href="https://twitter.com/pkozlowski_os">@pkozlowski_os</a></li>
-            <li><a href="https://github.com/pkozlowski-opensource">https://github.com/pkozlowski-opensource</a></li>
         </ul>
     </section>
 
     <section>
-        <img src="http://www.packtpub.com/sites/default/files/1820OS.jpg" alt=""/>
+        <h2>I'm into climbing and open-source</h2>
+        <img src="https://0.gravatar.com/avatar/73cb0ce891d2be76bd0fdb6e14f4c91c?d=https%3A%2F%2Fidenticons.github.com%2F3e938297ba9793abbd9e22175e44baf5.png&r=x&s=440" alt=""/>
+        <p>AngularJS, angular-app, AngularUI, Karma runner, InteliJ live tpls, MongoLab wrappers...</p>
     </section>
 
     <section>
-        <h2>I'm into open-source</h2>
+        <img src="http://www.packtpub.com/sites/default/files/1820OS.jpg" alt=""/>
     </section>
 
 </section>
@@ -370,15 +372,19 @@ addEventListener(document, 'load', function () {
     <section>
         <h2>Testing controllers</h2>
         <pre><code ng-non-bindable>  beforeEach(inject(function (_$rootScope_, _$controller_) {
+    // ex:start
     $scope = _$rootScope_;
     usersCtrl = _$controller_('UsersCtrl', {
       '$scope': $scope
     });
+    // ex:end
   }));
 
   it('should initialize scope with an empty users collection', function () {
+    // ex:start
     expect($scope.user).toEqual({});
     expect($scope.users.length).toEqual(0);
+    // ex:end
   });</code></pre>
     </section>
 
@@ -394,14 +400,17 @@ addEventListener(document, 'load', function () {
         <section>
 
     <section>
-        <h1>Modules and Dependency Injection</h1>
+        <h2>Modules and Dependency Injection</h2>
+        <blockquote>
+            "I was expecting a paradigm shift, and all I got was a lousy constructor"
+        </blockquote>
     </section>
 
     <section>
         <h2>DI in AngularJS</h2>
         <ul>
-            <li>$provider allows us to register recipies for object creation</li>
-            <li>$injector produces singletons based on those recipies</li>
+            <li><code>$provide</code> allows us to register recipes for object creation</li>
+            <li><code>$injector</code> gives access to singletons produced based on those recipes</li>
             <li>Singleton instances are called "services"</li>
         </ul>
     </section>
@@ -415,7 +424,7 @@ addEventListener(document, 'load', function () {
     </section>
 
     <section>
-        <h2>Modules accept various recipies</h2>
+        <h2>Modules accept various recipes</h2>
         <ul>
             <li>Values</li>
             <li>Services</li>
@@ -510,6 +519,7 @@ angular.module('bar', []).service('myService', BarService);</code></pre>
 
   .controller('UsersCtrl', function ($scope, UserStorage) {
 
+    // ex:start
     $scope.cleanUser = {};
     $scope.users = UserStorage.getAll();
 

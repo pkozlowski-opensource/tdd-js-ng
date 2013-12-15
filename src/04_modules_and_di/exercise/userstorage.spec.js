@@ -20,7 +20,6 @@ describe('User storage as global function', function () {
     });
 
     it('should allow querying all users', function () {
-
       userStorage.save({name: 'foo'});
       userStorage.save({name: 'bar'});
 
@@ -28,7 +27,6 @@ describe('User storage as global function', function () {
     });
 
     it('should support removing users by id', function () {
-
       // setup
       userStorage.save({id: '1', value: 'foo'});
       userStorage.save({id: '2', value: 'bar'});
@@ -45,11 +43,9 @@ describe('User storage as global function', function () {
   });
 
   describe('corner cases', function () {
-
     it('should return null for non existing users', function () {
       expect(userStorage.getById('foo')).toBeNull();
     });
-
   });
 
 });

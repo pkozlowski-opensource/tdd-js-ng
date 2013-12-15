@@ -16,15 +16,17 @@ describe('users controller', function () {
   //slide:end
 
   it('should initialize scope with an empty users collection', function () {
+    // ex:start
     usersCtrl = $controller('UsersCtrl', {
       '$scope': $scope
     });
     expect($scope.user).toEqual({});
     expect($scope.users.length).toEqual(0);
+    //ex:end
   });
 
   it('should save a current user and update users list', function () {
-
+    // ex:start
     var savedUser;
 
     usersCtrl = $controller('UsersCtrl', {
@@ -48,9 +50,11 @@ describe('users controller', function () {
 
     expect($scope.users.length).toEqual(1);
     expect($scope.user).toEqual({});
+    //ex:end
   });
 
   it('should dirty check and allow clearing user edits', function () {
+    // ex:start
     usersCtrl = $controller('UsersCtrl', {
       '$scope': $scope
     });
@@ -60,10 +64,11 @@ describe('users controller', function () {
 
     $scope.clear();
     expect($scope.hasEdits()).toBeFalsy();
+    //ex:end
   });
 
   it('should remove a selected user', function () {
-
+    // ex:start
     //mocking with Jasmine spies
     spyOn(userStorage, 'remove');
     spyOn(userStorage, 'getAll').andReturn([]);
@@ -77,10 +82,11 @@ describe('users controller', function () {
 
     expect(userStorage.remove).toHaveBeenCalledWith(1);
     expect($scope.users.length).toEqual(0);
+    //ex:end
   });
 
   it('should support editing users', function () {
-
+    // ex:start
     usersCtrl = $controller('UsersCtrl', {
       '$scope': $scope
     });
@@ -89,6 +95,7 @@ describe('users controller', function () {
     $scope.edit($scope.users[0]);
 
     expect($scope.user.name).toEqual('foo');
+    //ex:end
   });
 
 });
