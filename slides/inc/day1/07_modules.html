@@ -1,0 +1,82 @@
+<section>
+
+    <section>
+        <h1>Modules and Dependency Injection</h1>
+    </section>
+
+    <section>
+        <h2>DI in AngularJS</h2>
+        <ul>
+            <li>$provider allows us to register recipies for object creation</li>
+            <li>$injector produces singletons based on those recipies</li>
+            <li>Singleton instances are called "services"</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>2-phase lifecycle</h2>
+        <ul>
+            <li>Configure</li>
+            <li>Run</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Modules accept various recipies</h2>
+        <ul>
+            <li>Values</li>
+            <li>Services</li>
+            <li>Factories</li>
+            <li>Constants</li>
+            <li>Providers</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Values</h2>
+        <pre><code ng-non-bindable><%= includeJs('slides/inc/day1/src/di.js', 'value') %></code></pre>
+    </section>
+
+    <section>
+        <h2>Services</h2>
+        <pre><code ng-non-bindable><%= includeJs('slides/inc/day1/src/di.js', 'service') %></code></pre>
+    </section>
+
+    <section>
+        <h2>Factoriess</h2>
+        <pre><code ng-non-bindable><%= includeJs('slides/inc/day1/src/di.js', 'factory') %></code></pre>
+    </section>
+
+    <section>
+        <h2>Constants</h2>
+        <pre><code ng-non-bindable><%= includeJs('slides/inc/day1/src/di.js', 'constant') %></code></pre>
+    </section>
+
+    <section>
+        <h2>Providers</h2>
+        <pre><code ng-non-bindable><%= includeJs('slides/inc/day1/src/di.js', 'provider') %></code></pre>
+    </section>
+
+    <section>
+        <h2>Modules do not _not_ form namespaces!</h2>
+        <pre><code ng-non-bindable><%= includeJs('slides/inc/day1/src/di.js', 'clash') %></code></pre>
+        <h4>But they do prevent pollution of the global JS namespace.</h4>
+    </section>
+
+    <section>
+        <h2>Registering controllers on modules</h2>
+        <pre><code ng-non-bindable><%= includeJs('src/04_modules_and_di/users.js', 'ctrl') %></code></pre>
+    </section>
+
+    <section>
+        <h2>AngularJS modules and testing</h2>
+        <pre><code ng-non-bindable><%= includeJs('src/04_modules_and_di/users.spec.js', 'module') %></code></pre>
+    </section>
+
+    <section>
+        <h1>Exercise</h1>
+        <h2 stopwatch="30"></h2>
+        <p>Turn code from the previous exercise into its modular equivalent.</p>
+    </section>
+
+</section>
