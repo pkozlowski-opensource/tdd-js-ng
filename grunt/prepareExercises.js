@@ -18,11 +18,6 @@ module.exports = function (grunt) {
       var inExercise = false;
       var exerciseTargetPath = path.join(path.dirname(exerciseSourcePath), 'exercise', path.basename(exerciseSourcePath));
 
-      // check if target exists - it might have been created "by hand"
-      if (grunt.file.exists(exerciseTargetPath)) {
-        return;
-      }
-
       // read and process line by line removing exercise parts
       grunt.file.read(exerciseSourcePath).split('\n').forEach(function (line) {
         if (s(line).contains('ex:start')) {
