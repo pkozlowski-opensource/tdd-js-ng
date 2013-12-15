@@ -11,7 +11,7 @@ describe('timeout testing', function () {
 
   // slide:start:time;
   it('should send notification after 20 minutes', function () {
-
+    //ex:start
     var ctrl = $controller('TimeBoundController', {
       $scope: $scope
     });
@@ -22,6 +22,7 @@ describe('timeout testing', function () {
     $timeout.flush();
 
     expect($scope.msg).toEqual('Your time is up!');
+    //ex:end
   });
   // slide:end;
 

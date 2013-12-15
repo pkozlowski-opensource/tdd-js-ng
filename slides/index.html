@@ -557,7 +557,8 @@ angular.module('bar', []).service('myService', BarService);</code></pre>
 
     <section>
         <h2>More on the rendering engine</h2>
-        <h2>Filters</h2>
+        <h3>Filters</h3>
+        <img src="http://blog.nikonians.org/CPL%20filter.jpg" alt=""/>
     </section>
 
     <section>
@@ -626,7 +627,7 @@ angular.module('myDate', [])
     <section>
         <h1>Exercise</h1>
         <h2 stopwatch="15"></h2>
-        <p>Write a pagination filter, wrapping around the limitTo one, </p>
+        <p>Write a pagination filter, similar to the limitTo one, </p>
         <p>that allows limiting an array to both boundaries.</p>
         <pre><code ng-non-bindable>{{ users | pagination:pageNo:10}}</code></pre>
         <a href="https://github.com/angular/angular.js/issues/5355">Issue 5355</a>
@@ -859,7 +860,7 @@ angular.module('myDate', [])
     <section>
         <h2>Time machine to the rescue!</h2>
         <pre><code ng-non-bindable>  it('should send notification after 20 minutes', function () {
-
+    //ex:start
     var ctrl = $controller('TimeBoundController', {
       $scope: $scope
     });
@@ -870,12 +871,19 @@ angular.module('myDate', [])
     $timeout.flush();
 
     expect($scope.msg).toEqual('Your time is up!');
+    //ex:end
   });</code></pre>
     </section>
 
     <section>
         <h2>AngularJS mocks allow us to preserve asynchronous semantics</h2>
         <h2>... and execute code in the synchronous way!</h2>
+    </section>
+
+    <section>
+        <h1>Exercise</h1>
+        <h2 stopwatch="10"></h2>
+        <p>Write a test for a controller depending on the $timeout service</p>
     </section>
 
 </section>
@@ -905,7 +913,7 @@ angular.module('myDate', [])
 
     <section>
         <h2>$http building blocks</h2>
-        $http -> $httpBackend
+        <h4>$http depends on $httpBackend</h4>
     </section>
 
     <section>
@@ -926,9 +934,11 @@ angular.module('myDate', [])
   });</code></pre>
     </section>
 
+
     <section>
         <h2>2 ways of expressing expectations</h2>
-        expect vs. when
+        <h3>Code oriented vs. back-end oriented</h3>
+        <a href="http://docs.angularjs.org/api/ngMock.$httpBackend" target="_blank">expect vs. when</a>
     </section>
 
     <section>

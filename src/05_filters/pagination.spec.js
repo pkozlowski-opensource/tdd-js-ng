@@ -9,7 +9,6 @@ describe('pagination filter', function () {
   }));
 
   it('should return a slice of the input array', function () {
-
     var input = [1, 2, 3, 4, 5, 6];
 
     expect(paginationFilter(input, 0, 2)).toEqual([1, 2]);
@@ -19,10 +18,14 @@ describe('pagination filter', function () {
     expect(paginationFilter(input, 1, 3)).toEqual([4, 5, 6]);
   });
 
-  it('should return empty array for out-of bounds', function () {
-
+  it('should return empty array for start out-of bounds', function () {
     var input = [1, 2];
     expect(paginationFilter(input, 2, 2)).toEqual([]);
+  });
+
+  it('should return available items for end out-of bounds', function () {
+    var input = [1, 2];
+    expect(paginationFilter(input, 0, 5)).toEqual([1 ,2]);
   });
   //ex:end
 });

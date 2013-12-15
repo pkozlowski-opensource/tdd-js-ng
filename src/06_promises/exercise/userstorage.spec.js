@@ -29,9 +29,6 @@ describe('Async user storage', function () {
 
     it('should allow adding and querying users by id', function () {
 
-
-      var byIdUser = promiseValue(userStorage.getById(savedUser.id));
-      expect(byIdUser.name).toEqual('Pawel');
     });
 
     it('should allow querying all users', function () {
