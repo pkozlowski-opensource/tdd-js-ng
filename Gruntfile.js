@@ -14,11 +14,19 @@ module.exports = function (grunt) {
       options: {
         frameworks: ['jasmine'],
         files: [
+          'lib/jquery-1.10.2.js',
           'lib/angular.js',
           'lib/angular-mocks.js',
-          'src/**/*.js'
+          'src/**/*.js',
+          'src/**/*.html'
         ],
-        browsers: process.env.TRAVIS ? ['Firefox'] : ['Chrome']
+        browsers: process.env.TRAVIS ? ['Firefox'] : ['Chrome'],
+        ngHtml2JsPreprocessor: {
+            prependPrefix: '/',
+            // setting this option will create only a single module that contains templates
+            // from all the files, so you can load them all with module('templates')
+            moduleName: 'templates'
+        }
       },
       tdd: {
         autoWatch: true,
