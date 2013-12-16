@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+    <link rel="stylesheet" href="../../assets/bootstrap.css"/>
+    <script src="../../lib/angular.js"></script>
+    <script src="pagination.js"></script>
+    <script>
+        angular.module('app', ['bs.pagination'])
+            .controller('AppCtrl', function($scope) {
+                $scope.myPage = 5;
+            });
+    </script>
+</head>
+<body ng-controller="AppCtrl">
+
+    <pre>{{myPage | json }}</pre>
+    <bs-pagination selected-page="myPage" collection-size="100"></bs-pagination>
+
+</body>
+</html>
