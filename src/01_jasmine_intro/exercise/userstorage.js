@@ -1,5 +1,7 @@
 var UserStorage = function() {
 
+  var sequence = 1;
+
   var users = {};
 
   this.save = function(user) {
@@ -16,4 +18,3 @@ var UserStorage = function() {
 
 };
 
-UserStorage.sequence = 1;

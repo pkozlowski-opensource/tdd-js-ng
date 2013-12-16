@@ -1,11 +1,13 @@
 var UserStorage = function() {
 
+  var sequence = 1;
+
   var users = {};
 
   this.save = function(user) {
     //ex:start
     if (!user.id) {
-      user.id = UserStorage.sequence++;
+      user.id = sequence++;
     }
     users[user.id] = user;
 
@@ -42,4 +44,3 @@ var UserStorage = function() {
 
 };
 
-UserStorage.sequence = 1;
