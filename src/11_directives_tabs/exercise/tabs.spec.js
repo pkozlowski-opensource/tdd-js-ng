@@ -31,43 +31,12 @@ describe('tabs', function () {
     });
 
     it('should remove existing tab', function () {
-      var t1 = {};
-
-      tabsCtrl.addTab(t1);
-      expect($scope.tabs.length).toEqual(1);
-
-      tabsCtrl.removeTab(t1);
-      expect($scope.tabs.length).toEqual(0);
     });
 
     it('should select an active tab based on valid index', function () {
-
-      var t1 = {};
-      var t2 = {};
-
-      tabsCtrl.addTab(t1);
-      tabsCtrl.addTab(t2);
-      $scope.selectActiveTab(1);
-
-      expect(t2.isActive).toBeTruthy();
-      expect(t1.isActive).toBeFalsy();
     });
 
     it('should ignore selections with invalid index', function () {
-
-      var t1 = {};
-      var t2 = {};
-
-      tabsCtrl.addTab(t1);
-      tabsCtrl.addTab(t2);
-
-      $scope.selectActiveTab(-1);
-      expect(t1.isActive).toBeTruthy();
-      expect(t2.isActive).toBeFalsy();
-
-      $scope.selectActiveTab(5);
-      expect(t1.isActive).toBeTruthy();
-      expect(t2.isActive).toBeFalsy();
     });
 
   });
@@ -103,23 +72,6 @@ describe('tabs', function () {
     });
 
     it('should switch active tab on heading click', function () {
-
-      var elm = compileElement(
-        '<bs-tabs>' +
-          '<bs-tab heading="foo">foo content</bs-tab>' +
-          '<bs-tab heading="{{\'bar\'}}">bar content</bs-tab>' +
-          '</bs-tabs>', $scope);
-
-      var headings = elm.find('ul.nav-tabs > li');
-      var body = elm.find('div.tab-content > div.tab-pane');
-
-      headings.eq(1).find('a').click();
-
-      expect(headings.eq(0)).not.toHaveClass('active');
-      expect(body.eq(0)).not.toHaveClass('active');
-
-      expect(headings.eq(1)).toHaveClass('active');
-      expect(body.eq(1)).toHaveClass('active');
     });
 
   });

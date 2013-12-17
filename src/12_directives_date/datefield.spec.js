@@ -34,19 +34,23 @@ describe('datefield', function () {
     });
 
     it('should format a valid date with a specified format (YYYY-MM-DD)', function () {
+      //ex:start
       $scope.model = new Date(0);
       var elm = compileElement('<form name="f"><input name="i" ng-model="model" bs-datefield="YYYY-MM-DD"></form>', $scope);
 
       expect(elm.find('input').val()).toEqual('1970-01-01');
       expect($scope.f.i.$valid).toBeTruthy();
+      //ex:end
     });
 
     it('should leave an input field blank and mark a field as invalid for invalid date', function () {
+      //ex:start
       $scope.model = 'invalid';
       var elm = compileElement('<form name="f"><input name="i" ng-model="model" bs-datefield></form>', $scope);
 
       expect(elm.find('input').val()).toEqual('');
       expect($scope.f.i.$invalid).toBeTruthy();
+      //ex:end
     });
 
   });
@@ -63,8 +67,8 @@ describe('datefield', function () {
       expect($scope.f.i.$valid).toBeTruthy();
     });
 
-
     it('should correctly parse date in the specified format', function () {
+      //ex:start
       var elm = compileElement('<form name="f"><input name="i" ng-model="model" bs-datefield="YYYY-MM-DD"></form>', $scope);
       changeInputValueTo(elm, '2013-11-02');
 
@@ -72,15 +76,17 @@ describe('datefield', function () {
       expect($scope.model.getMonth()).toEqual(10);
       expect($scope.model.getDate()).toEqual(2);
       expect($scope.f.i.$valid).toBeTruthy();
+      //ex:end
     });
 
     it('should bind undefined to the model and mark a field as invalid if parsing fails', function () {
-
+      //ex:start
       var elm = compileElement('<form name="f"><input name="i" ng-model="model" bs-datefield></form>', $scope);
       changeInputValueTo(elm, 'gibberish');
 
       expect($scope.model).toBeUndefined();
       expect($scope.f.i.$invalid).toBeTruthy();
+      //ex:end
     });
 
   });

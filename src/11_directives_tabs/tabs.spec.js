@@ -31,6 +31,7 @@ describe('tabs', function () {
     });
 
     it('should remove existing tab', function () {
+      //ex:start
       var t1 = {};
 
       tabsCtrl.addTab(t1);
@@ -38,10 +39,11 @@ describe('tabs', function () {
 
       tabsCtrl.removeTab(t1);
       expect($scope.tabs.length).toEqual(0);
+      //ex:end
     });
 
     it('should select an active tab based on valid index', function () {
-
+      //ex:start
       var t1 = {};
       var t2 = {};
 
@@ -51,10 +53,11 @@ describe('tabs', function () {
 
       expect(t2.isActive).toBeTruthy();
       expect(t1.isActive).toBeFalsy();
+      //ex:end
     });
 
     it('should ignore selections with invalid index', function () {
-
+      //ex:start
       var t1 = {};
       var t2 = {};
 
@@ -68,6 +71,7 @@ describe('tabs', function () {
       $scope.selectActiveTab(5);
       expect(t1.isActive).toBeTruthy();
       expect(t2.isActive).toBeFalsy();
+      //ex:end
     });
 
   });
@@ -103,7 +107,7 @@ describe('tabs', function () {
     });
 
     it('should switch active tab on heading click', function () {
-
+      //ex:start
       var elm = compileElement(
         '<bs-tabs>' +
           '<bs-tab heading="foo">foo content</bs-tab>' +
@@ -120,6 +124,7 @@ describe('tabs', function () {
 
       expect(headings.eq(1)).toHaveClass('active');
       expect(body.eq(1)).toHaveClass('active');
+      //ex:end
     });
 
   });
