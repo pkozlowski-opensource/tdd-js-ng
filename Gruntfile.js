@@ -16,10 +16,15 @@ module.exports = function (grunt) {
         files: [
           'lib/jquery-1.10.2.js',
           'lib/angular.js',
+          'lib/moment.js',
           'lib/angular-mocks.js',
           'lib/jasmine-matchers.js',
           'src/**/*.js',
           'src/**/*.html'
+        ],
+        exclude: [
+          'src/**/index.html',
+          'src/**/demo.html'
         ],
         browsers: process.env.TRAVIS ? ['Firefox'] : ['Chrome'],
         ngHtml2JsPreprocessor: {
