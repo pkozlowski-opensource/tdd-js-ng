@@ -43,6 +43,18 @@ module.exports = function (grunt) {
         singleRun: true
       }
     },
+    html2js: {
+      options: {
+        module: 'templates',
+        rename: function(moduleName) {
+          return '/src/' + moduleName;
+        }
+      },
+      main: {
+        src: ['src/**/*.html', '!src/**/index.html', '!src/**/demo.html'],
+        dest: 'tmp/templates.js'
+      }
+    },
     connect: {
       server: {
         options: {
@@ -75,6 +87,7 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-karma');
+  grunt.loadNpmTasks('grunt-html2js');
 
   // load supporting tasks for workshop preparation
   grunt.loadTasks('grunt');
